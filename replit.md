@@ -8,6 +8,14 @@ This is a full-stack web application for San Jose National High School built wit
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (January 22, 2025)
+
+- **Navigation Update**: Replaced search functionality with FAQ link in both desktop and mobile navigation
+- **Privacy Implementation**: All staff names changed to "SECRET NAME", positions to "POSITION", and real photos replaced with color-coded placeholder images
+- **Official Content Integration**: Added complete DepEd content including Vision, Mission, Core Values, and Quality Policies
+- **Hero Section Enhancement**: Updated hero background to use a placeholder school building image with dark overlay for text readability and responsive design
+- **Image Standardization**: All images across the site now use placeholder images with descriptive labels and consistent styling
+
 ## System Architecture
 
 ### Frontend Architecture
@@ -46,10 +54,11 @@ Preferred communication style: Simple, everyday language.
 - **Type Safety**: Drizzle-zod integration for runtime validation
 
 ### Frontend Components
-- **Page Components**: Home page with multiple sections (Hero, Updates, Enrollment, Staff, Gallery)
+- **Page Components**: Home page with multiple sections (Hero with background image, Updates, Enrollment, Staff, Gallery)
 - **UI Components**: Complete shadcn/ui component library including forms, dialogs, cards, etc.
-- **Layout Components**: Header with search functionality, Footer with contact information
+- **Layout Components**: Navigation with hamburger menu and FAQ link, Footer with contact information
 - **School-Specific Components**: Enrollment forms, staff directory, learning modality information
+- **Privacy Features**: All real names replaced with "SECRET NAME", positions with "POSITION", and photos with placeholder images
 
 ### Backend Services
 - **Storage Interface**: Abstract storage interface with memory-based implementation
