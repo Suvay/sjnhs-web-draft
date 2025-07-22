@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Switch } from "@/components/ui/switch";
+
 import { 
   Menu, 
   X, 
@@ -14,8 +14,6 @@ import {
   FileText, 
   MessageSquare, 
   Phone,
-  Sun,
-  Moon,
   Facebook,
   Twitter,
   Youtube
@@ -87,17 +85,13 @@ export default function Navigation() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSections, setOpenSections] = useState<string[]>([]);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const [location] = useLocation();
 
   useEffect(() => {
-    // Apply dark mode to document
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
+    // Always apply dark mode
+    document.documentElement.classList.add('dark');
+  }, []);
 
   const toggleSection = (path: string) => {
     setOpenSections(prev => 
@@ -251,16 +245,7 @@ export default function Navigation() {
               <DesktopNavItem key={item.path} item={item} />
             ))}
             
-            {/* Dark Mode Toggle */}
-            <div className="flex items-center space-x-2 ml-4">
-              <Sun className="h-4 w-4 text-gray-500" />
-              <Switch
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-                className="data-[state=checked]:bg-blue-600"
-              />
-              <Moon className="h-4 w-4 text-gray-500" />
-            </div>
+
           </nav>
 
           {/* Mobile Menu Button */}
@@ -307,19 +292,7 @@ export default function Navigation() {
 
               {/* Mobile Footer */}
               <div className="p-6 border-t border-gray-200 dark:border-gray-700">
-                {/* Dark Mode Toggle */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Dark Mode</span>
-                  <div className="flex items-center space-x-2">
-                    <Sun className="h-4 w-4 text-gray-500" />
-                    <Switch
-                      checked={isDarkMode}
-                      onCheckedChange={setIsDarkMode}
-                      className="data-[state=checked]:bg-blue-600"
-                    />
-                    <Moon className="h-4 w-4 text-gray-500" />
-                  </div>
-                </div>
+
 
                 {/* Social Links */}
                 <div className="flex justify-center space-x-4">
