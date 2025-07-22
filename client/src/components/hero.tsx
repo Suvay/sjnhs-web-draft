@@ -14,7 +14,7 @@ export default function Hero() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("https://via.placeholder.com/1920x1080/1E40AF/FFFFFF?text=School+Building+Placeholder")'
+          backgroundImage: 'url("https://files.kick.com/images/channel/22563539/banner_image/d4da1849-663e-4a32-a86b-755ec5f98d1e")'
         }}
       />
       
