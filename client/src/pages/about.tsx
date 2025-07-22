@@ -15,17 +15,16 @@ import {
 
 export default function About() {
   const achievements = [
-    { year: "2024", title: "Excellence in Education Award", category: "Academic" },
-    { year: "2023", title: "Outstanding Science Program", category: "STEM" },
-    { year: "2023", title: "Community Service Recognition", category: "Service" },
-    { year: "2022", title: "Sports Championship", category: "Athletics" }
+    { year: "2025", title: "Won against Global Esports", category: "Esports" },
+    { year: "2023", title: "Outstanding Science Program", category: "TEAM SECRET FILL" },
+    { year: "2023", title: "Community Service Recognition", category: "TEAM SECRET FILL" },
+    { year: "2022", title: "Sports Championship", category: "TEAM SECRET FILL" }
   ];
 
   const organizationalChart = [
-    { position: "Principal", name: "Dr. Maria Santos", department: "Administration" },
-    { position: "Vice Principal", name: "Mr. Jose Cruz", department: "Academic Affairs" },
-    { position: "Academic Coordinator", name: "Ms. Ana Reyes", department: "Curriculum" },
-    { position: "Student Affairs Officer", name: "Mr. Carlos Lopez", department: "Student Services" }
+    { position: "POSITION", name: "SECRET NAME", department: "Administration" },
+    { position: "POSITION", name: "SECRET NAME", department: "Curriculum" },
+    { position: "POSITION", name: "SECRET NAME", department: "Student Services" }
   ];
 
   return (
@@ -55,7 +54,7 @@ export default function About() {
               <div className="grid lg:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    San Jose National High School was established in 1985 with the vision of providing 
+                    San Jose National High School was established in 1971 with the vision of providing 
                     quality secondary education to the youth of San Jose, Batangas. What started as a 
                     small institution with just 150 students has grown into a comprehensive high school 
                     serving over 2,000 students.
@@ -68,7 +67,7 @@ export default function About() {
                 </div>
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300"
+                    src="https://via.placeholder.com/600x300/1E40AF/FFFFFF?text=School+History"
                     alt="Historical photo of San Jose National High School"
                     className="rounded-lg shadow-md w-full h-auto"
                   />
@@ -77,36 +76,86 @@ export default function About() {
             </CardContent>
           </Card>
 
-          {/* Mission and Vision */}
+          {/* DepEd Vision */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center space-x-2">
+                <Eye className="h-6 w-6 text-purple-600" />
+                <CardTitle className="text-2xl text-gray-900 dark:text-white">THE DEPED VISION</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation.
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                As a learner-centered public institution, the Department of Education continuously improves itself to better serve its stakeholder.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* DepEd Mission */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center space-x-2">
+                <Target className="h-6 w-6 text-green-600" />
+                <CardTitle className="text-2xl text-gray-900 dark:text-white">THE DEPED MISSION</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where:
+              </p>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <li>• <strong>Students</strong> learn in a child-friendly, gender-sensitive, safe, and motivating environment.</li>
+                <li>• <strong>Teachers</strong> facilitate learning and constantly nurture every learner.</li>
+                <li>• <strong>Administrators and staff</strong>, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.</li>
+                <li>• <strong>Family, community, and other stakeholders</strong> are actively engaged and share responsibility for developing lifelong learners.</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Core Values */}
+          <Card className="mb-8">
+            <CardHeader>
+              <div className="flex items-center space-x-2">
+                <Award className="h-6 w-6 text-blue-600" />
+                <CardTitle className="text-2xl text-gray-900 dark:text-white">OUR CORE VALUES</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {['Maka-Diyos', 'Maka-tao', 'Makakalikasan', 'Makabansa'].map((value, index) => (
+                  <div key={index} className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                    <h4 className="font-bold text-blue-600 dark:text-blue-400">{value}</h4>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Quality Policies */}
           <div className="grid lg:grid-cols-2 gap-8 mb-8">
             <Card>
               <CardHeader>
-                <div className="flex items-center space-x-2">
-                  <Target className="h-6 w-6 text-green-600" />
-                  <CardTitle className="text-xl text-gray-900 dark:text-white">Mission</CardTitle>
-                </div>
+                <CardTitle className="text-xl text-gray-900 dark:text-white">SCHOOL QUALITY POLICY</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  To provide quality, accessible, and relevant secondary education that develops 
-                  critical thinking, moral values, and life skills necessary for students to become 
-                  productive citizens and lifelong learners in a rapidly changing world.
+                  We, at San Jose National High School, commit ourselves to render basic education services with high sense of Respect, Transparency, and Ingenuity achieving customers' satisfaction and quality outputs in conformity with the existing policies and standards of the Department in pursuit of the goal <em>No Child Left Behind</em> and <em>Sulong Edukalidad</em>.
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <div className="flex items-center space-x-2">
-                  <Eye className="h-6 w-6 text-purple-600" />
-                  <CardTitle className="text-xl text-gray-900 dark:text-white">Vision</CardTitle>
-                </div>
+                <CardTitle className="text-xl text-gray-900 dark:text-white">SDO BATANGAS QUALITY POLICY</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  A premier institution that nurtures globally competitive, morally upright, and 
-                  socially responsible graduates who are empowered to contribute to nation-building 
-                  and sustainable development.
+                  DepEd-Division of Batangas is one of the premier public educational institutions driven by competent workers who are dedicated to sustain high level performance.
+                  We are committed to satisfy the demands of our clients through effective and efficient delivery of basic education services anchored on standardized processes and procedures with compliance to applicable laws and regulations.
+                  QMS will be a way of life of the whole organization, thus determined for its continual improvement with the assurance that the Top Management will review and communicate all policies periodically as to appropriateness, practicality, suitability, and effectiveness.
                 </p>
               </CardContent>
             </Card>

@@ -1,0 +1,51 @@
+Please update the website with the following changes:
+
+1. **Navigation Menu (Hamburger Menu):**
+
+   * Remove the **“Search this site”** box.
+   * Replace it with a link labelled **“FAQ”**.
+
+2. **Photo and Event Sections:**
+
+   * Use **placeholder images** for all photos and event content.
+   * Replace all names with **“SECRET NAME”**.
+   * Replace all positions or titles with **“POSITION”**.
+
+3. **Insert the following text contents exactly as written below in their appropriate sections (e.g., About Us, Mission/Vision, etc.):**
+
+---
+
+**SCHOOL QUALITY POLICY**
+We, at San Jose National High School, commit ourselves to render basic education services with high sense of Respect, Transparency, and Ingenuity achieving customers' satisfaction and quality outputs in conformity with the existing policies and standards of the Department in pursuit of the goal *No Child Left Behind* and *Sulong Edukalidad*.
+
+---
+
+**SDO BATANGAS QUALITY POLICY**
+DepEd-Division of Batangas is one of the premier public educational institutions driven by competent workers who are dedicated to sustain high level performance.
+We are committed to satisfy the demands of our clients through effective and efficient delivery of basic education services anchored on standardized processes and procedures with compliance to applicable laws and regulations.
+QMS will be a way of life of the whole organization, thus determined for its continual improvement with the assurance that the Top Management will review and communicate all policies periodically as to appropriateness, practicality, suitability, and effectiveness.
+
+---
+
+**THE DEPED VISION**
+We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation.
+As a learner-centered public institution, the Department of Education continuously improves itself to better serve its stakeholder.
+
+---
+
+**OUR CORE VALUES**
+
+* Maka-Diyos
+* Maka-tao
+* Makakalikasan
+* Makabansa
+
+---
+
+**THE DEPED MISSION**
+To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where:
+
+* **Students** learn in a child-friendly, gender-sensitive, safe, and motivating environment.
+* **Teachers** facilitate learning and constantly nurture every learner.
+* **Administrators and staff**, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.
+* **Family, community, and other stakeholders** are actively engaged and share responsibility for developing lifelong learners.

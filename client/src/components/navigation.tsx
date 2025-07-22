@@ -5,7 +5,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Switch } from "@/components/ui/switch";
 import { 
-  Search, 
   Menu, 
   X, 
   ChevronDown, 
@@ -85,7 +84,7 @@ const navigationItems: NavigationItem[] = [
 ];
 
 export default function Navigation() {
-  const [searchQuery, setSearchQuery] = useState("");
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSections, setOpenSections] = useState<string[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -114,12 +113,7 @@ export default function Navigation() {
     return false;
   };
 
-  const handleSearch = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && searchQuery.trim()) {
-      console.log("Search query:", searchQuery);
-      // Implement search functionality here
-    }
-  };
+
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -241,19 +235,14 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Desktop Search Bar */}
-          <div className="hidden lg:flex items-center max-w-md w-full mx-4">
-            <div className="relative w-full">
-              <Input
-                type="text"
-                placeholder="Search this site"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyPress={handleSearch}
-                className="w-full pl-10 pr-4 bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600"
-              />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-            </div>
+          {/* Desktop FAQ Link */}
+          <div className="hidden lg:flex items-center">
+            <Button
+              variant="outline"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+            >
+              FAQ
+            </Button>
           </div>
 
           {/* Desktop Navigation */}
@@ -297,19 +286,14 @@ export default function Navigation() {
                 </Button>
               </div>
 
-              {/* Mobile Search */}
+              {/* Mobile FAQ Link */}
               <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                <div className="relative">
-                  <Input
-                    type="text"
-                    placeholder="Search this site"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    onKeyPress={handleSearch}
-                    className="w-full pl-10 pr-4 bg-gray-50 dark:bg-gray-800"
-                  />
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                </div>
+                <Button
+                  variant="outline"
+                  className="w-full text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+                >
+                  FAQ
+                </Button>
               </div>
 
               {/* Mobile Navigation */}

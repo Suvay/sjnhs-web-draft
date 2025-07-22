@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+              src="https://via.placeholder.com/800x600/1E40AF/FFFFFF?text=School+Building"
               alt="Modern school building exterior"
               className="rounded-xl shadow-2xl w-full h-auto"
             />

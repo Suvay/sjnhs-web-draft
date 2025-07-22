@@ -6,28 +6,28 @@ import { Phone } from "lucide-react";
 export default function Staff() {
   const staffMembers = [
     {
-      name: "Ms. Precious V. Roman",
+      name: "SECRET NAME",
       grade: "Grade 7",
       contact: "0926-923-2132",
-      photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      photo: "https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=Placeholder+Image",
     },
     {
-      name: "Ms. Angelica C. Rapay",
+      name: "SECRET NAME",
       grade: "Grade 8",
       contact: "0929-779-0940",
-      photo: "https://images.unsplash.com/photo-1494790108755-2616c98d7531?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      photo: "https://via.placeholder.com/400x300/059669/FFFFFF?text=Placeholder+Image",
     },
     {
-      name: "Mr. Dario M. Manata",
+      name: "SECRET NAME",
       grade: "Grade 9",
       contact: "0907-074-1893",
-      photo: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      photo: "https://via.placeholder.com/400x300/DC2626/FFFFFF?text=Placeholder+Image",
     },
     {
-      name: "Mrs. Rizalyn B. Balinado",
+      name: "SECRET NAME",
       grade: "Grade 10",
       contact: "0999-971-5315",
-      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      photo: "https://via.placeholder.com/400x300/7C2D12/FFFFFF?text=Placeholder+Image",
     },
   ];
 

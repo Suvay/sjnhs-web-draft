@@ -53,7 +53,7 @@ export default function LearningModality() {
 
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+              src="https://via.placeholder.com/600x400/8B5CF6/FFFFFF?text=Distance+Learning"
               alt="Students engaged in distance learning with study materials"
               className="rounded-xl shadow-xl w-full h-auto"
             />

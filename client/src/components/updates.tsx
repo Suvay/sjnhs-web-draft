@@ -25,7 +25,7 @@ export default function Updates() {
             <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
               <CardContent className="p-8">
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+                  src="https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Students+Studying"
                   alt="Students studying together in library"
                   className="rounded-lg w-full h-64 object-cover mb-6"
                 />
@@ -69,7 +69,7 @@ export default function Updates() {
             <Card className="shadow-sm">
               <CardContent className="p-6">
                 <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
+                  src="https://via.placeholder.com/400x250/F59E0B/FFFFFF?text=Graduation+Ceremony"
                   alt="Graduation ceremony with students celebrating"
                   className="rounded-lg w-full h-40 object-cover mb-4"
                 />
@@ -81,7 +81,7 @@ export default function Updates() {
             <Card className="shadow-sm">
               <CardContent className="p-6">
                 <img
-                  src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
+                  src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Learning+Modality"
                   alt="Teacher instructing students in modern classroom"
                   className="rounded-lg w-full h-40 object-cover mb-4"
                 />

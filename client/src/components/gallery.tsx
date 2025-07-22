@@ -1,28 +1,28 @@
 export default function Gallery() {
   const galleryItems = [
     {
-      image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Campus+Facilities",
       title: "Campus Facilities",
       description: "Modern learning environment"
     },
     {
-      image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://via.placeholder.com/400x300/10B981/FFFFFF?text=Collaborative+Learning",
       title: "Collaborative Learning",
       description: "Students working together"
     },
     {
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Achievement",
       title: "Achievement",
       description: "Celebrating success"
     },
     {
-      image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300",
+      image: "https://via.placeholder.com/800x300/8B5CF6/FFFFFF?text=Hands-on+Learning",
       title: "Hands-on Learning",
       description: "Science and technology programs",
       span: "md:col-span-2"
     },
     {
-      image: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      image: "https://via.placeholder.com/400x300/EF4444/FFFFFF?text=Outdoor+Learning",
       title: "Outdoor Learning",
       description: "Nature-integrated education"
     }

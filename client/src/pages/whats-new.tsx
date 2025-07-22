@@ -92,7 +92,7 @@ export default function WhatsNew() {
                 </div>
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
+                    src="https://via.placeholder.com/600x400/3B82F6/FFFFFF?text=Students+in+Classroom"
                     alt="Students in classroom"
                     className="rounded-lg shadow-lg w-full h-auto"
                   />

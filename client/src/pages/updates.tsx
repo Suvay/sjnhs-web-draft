@@ -27,9 +27,9 @@ export default function Updates() {
     },
     {
       title: "Parent-Teacher Conference",
-      date: "March 22, 2025",
+      date: "July 12, 2025",
       type: "Meeting",
-      status: "upcoming"
+      status: "Ended"
     }
   ];
 
@@ -77,19 +77,19 @@ export default function Updates() {
       title: "School Virtual Tour 2025",
       description: "Take a virtual tour of our campus facilities and classrooms",
       duration: "5:32",
-      thumbnail: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=225"
+      thumbnail: "https://via.placeholder.com/400x225/3B82F6/FFFFFF?text=Virtual+Tour"
     },
     {
       title: "Graduation Ceremony 2024 Highlights",
       description: "Highlights from our 2024 graduation ceremony",
       duration: "8:15",
-      thumbnail: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=225"
+      thumbnail: "https://via.placeholder.com/400x225/F59E0B/FFFFFF?text=Graduation"
     },
     {
       title: "Science Fair Winners 2024",
       description: "Meet our science fair winners and their innovative projects",
       duration: "6:47",
-      thumbnail: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=225"
+      thumbnail: "https://via.placeholder.com/400x225/10B981/FFFFFF?text=Science+Fair"
     }
   ];
 
