@@ -12,7 +12,7 @@ export default function NotFound() {
           </div>
 
           <p className="text-sm text-gray-300 mb-2">
-            This page is currently under construction by <strong className="text-yellow-400">Team Secret – Sophia Nicole G.</strong> Please check again at a later time.
+            This page is currently under construction by <strong className="text-yellow-400">Team Secret – Sophia G.</strong> Please check again at a later time.
           </p>
           <p className="text-sm text-gray-400">
             The page you’re looking for doesn’t exist or is under construction. Please check the URL or return to the homepage.
