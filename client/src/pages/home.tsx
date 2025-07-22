@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Navigation from "@/components/navigation";
 import Hero from "@/components/hero";
 import Updates from "@/components/updates";
 import Enrollment from "@/components/enrollment";
@@ -10,7 +10,7 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Navigation />
       <main>
         <Hero />
         <Updates />
