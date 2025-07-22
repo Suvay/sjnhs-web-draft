@@ -24,7 +24,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 lg:p-12">
+          <div className="backdrop-blur-sm rounded-2xl p-8 lg:p-12">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
               SOAR HIGH!<br />
               <span className="text-yellow-300 drop-shadow-lg">San Jose High!</span>
@@ -52,7 +52,7 @@ export default function Hero() {
           </div>
           <div className="relative lg:block hidden">
             {/* This space can be used for additional content or left empty for better focus on the main text */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 shadow-xl">
+            <div className="backdrop-blur-sm rounded-xl p-8 shadow-xl">
               <h3 className="text-2xl font-bold text-white mb-4 drop-shadow-md">Experience Excellence</h3>
               <p className="text-gray-100 drop-shadow-sm">
                 Join our community of learners and discover your potential in a supportive, innovative environment.
