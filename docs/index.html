@@ -11,8 +11,13 @@
     <meta property="og:description" content="Soar High! Quality education, excellence, and strong community values in Batangas, Philippines." />
     <meta property="og:type" content="website" />
     
-    <script type="module" crossorigin src="./assets/index-DbQ36DYE.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-xpuftmk8.css">
+    <!-- Dynamic base path for GitHub Pages -->
+    <script>
+      // Set base path for assets
+      var basePath = window.location.pathname.includes('/sjnhs-web-draft/') ? '/sjnhs-web-draft' : '';
+      document.write('<script type="module" crossorigin src="' + basePath + '/assets/index-DbQ36DYE.js"><\/script>');
+      document.write('<link rel="stylesheet" crossorigin href="' + basePath + '/assets/index-xpuftmk8.css">');
+    </script>
     
     <!-- GitHub Pages SPA support -->
     <script>
