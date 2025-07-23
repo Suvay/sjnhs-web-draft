@@ -91,9 +91,15 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 San Jose National High School. All rights reserved.{" "}
-            <span className="text-blue-400 font-semibold">SOAR HIGH!</span>
+          <p className="text-gray-400 mb-2">
+            © 2023 Team Secret Indonesia –{" "}
+            <span className="text-blue-400 font-semibold">Micole Francine C.</span>,{" "}
+            <span className="text-blue-400 font-semibold">Geoff Tristan B.</span>,{" "}
+            <span className="text-blue-400 font-semibold">Sophia Nicole G.</span>
+          </p>
+          <p className="text-gray-500 text-sm">24A Trolley Square #2164, Wilmington, DE 19806, USA</p>
+          <p className="text-gray-400 mt-1">
+            <span className="text-blue-400 font-semibold">It Lies Wihtin</span>
           </p>
         </div>
       </div>

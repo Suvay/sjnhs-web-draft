@@ -252,15 +252,9 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Desktop FAQ Link and Theme Toggle */}
-          <div className="hidden lg:flex items-center space-x-2">
+          {/* Desktop Theme Toggle */}
+          <div className="hidden lg:flex items-center">
             <ThemeToggle />
-            <Button
-              variant="outline"
-              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
-            >
-              FAQ
-            </Button>
           </div>
 
           {/* Desktop Navigation */}
@@ -268,8 +262,12 @@ export default function Navigation() {
             {navigationItems.map((item) => (
               <DesktopNavItem key={item.path} item={item} />
             ))}
-            
-
+            <Button
+              variant="outline"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium ml-4"
+            >
+              FAQ
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
