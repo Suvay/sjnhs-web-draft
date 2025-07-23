@@ -6,24 +6,28 @@ import { Phone } from "lucide-react";
 export default function Staff() {
   const staffMembers = [
     {
+      id: "staff-grade-7",
       name: "SECRET NAME",
       grade: "Grade 7",
       contact: "0926-923-2132",
       photo: "https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=Placeholder+Image",
     },
     {
+      id: "staff-grade-8",
       name: "SECRET NAME",
       grade: "Grade 8",
       contact: "0929-779-0940",
       photo: "https://via.placeholder.com/400x300/059669/FFFFFF?text=Placeholder+Image",
     },
     {
+      id: "staff-grade-9",
       name: "SECRET NAME",
       grade: "Grade 9",
       contact: "0907-074-1893",
       photo: "https://via.placeholder.com/400x300/DC2626/FFFFFF?text=Placeholder+Image",
     },
     {
+      id: "staff-grade-10",
       name: "SECRET NAME",
       grade: "Grade 10",
       contact: "0999-971-5315",
@@ -41,7 +45,7 @@ export default function Staff() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {staffMembers.map((member) => (
-            <Card key={member.name} className="shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
+            <Card key={member.id} className="shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
               <img
                 src={member.photo}
                 alt={`${member.name} - ${member.grade} Personnel`}
