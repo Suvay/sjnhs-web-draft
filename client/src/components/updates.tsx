@@ -22,7 +22,7 @@ export default function Updates() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Update Card */}
           <div className="lg:col-span-2">
-            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/30 border-blue-200 dark:border-blue-800">
+            <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/30 border-green-200 dark:border-green-800">
               <CardContent className="p-8">
                 <img
                   src="https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Students+Studying"
@@ -42,7 +42,7 @@ export default function Updates() {
                   {enrollmentLinks.map((link) => (
                     <div key={link.grade} className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-600">
                       <div className="flex items-center space-x-3">
-                        <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800">
                           {link.grade}
                         </Badge>
                         <span className="text-gray-700 dark:text-gray-300">{link.description}</span>
@@ -50,7 +50,7 @@ export default function Updates() {
                       <Button
                         asChild
                         size="sm"
-                        className="bg-blue-600 hover:bg-blue-700"
+                        className="bg-green-600 hover:bg-green-700"
                       >
                         <a href={link.url} target="_blank" rel="noopener noreferrer">
                           Enroll Now

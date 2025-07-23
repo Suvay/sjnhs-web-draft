@@ -25,9 +25,9 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="backdrop-blur-sm rounded-2xl p-8 lg:p-12">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
-              SOAR HIGH!<br />
-              <span className="text-blue-300 drop-shadow-lg">San Jose High!</span>
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+              <span className="text-white">SOAR HIGH!</span><br />
+              <span className="text-green-400 drop-shadow-lg">San Jose High!</span>
             </h1>
             <p className="text-xl text-gray-100 mb-8 leading-relaxed drop-shadow-md">
               Welcome to our school's page! We encourage excellence, foster growth, and prepare students for a bright future through quality education and strong community values.
@@ -35,7 +35,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={() => scrollToSection("enrollment")}
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+                className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-lg"
                 size="lg"
               >
                 Enroll Now
@@ -43,7 +43,7 @@ export default function Hero() {
               <Button
                 onClick={() => scrollToSection("updates")}
                 variant="outline"
-                className="border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-800 transition-colors shadow-lg backdrop-blur-sm"
+                className="border-green-400 text-green-400 px-8 py-3 rounded-lg font-semibold hover:bg-green-400 hover:text-white transition-colors shadow-lg backdrop-blur-sm"
                 size="lg"
               >
                 Latest Updates

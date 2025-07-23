@@ -29,8 +29,8 @@ export default function Enrollment() {
           <Card className="shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <CardContent className="p-8">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Laptop className="text-blue-600 dark:text-blue-400 h-8 w-8" />
+                <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Laptop className="text-green-600 dark:text-green-400 h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Online Enrollment</h3>
                 <p className="text-gray-600 dark:text-gray-300 mt-2">Quick and convenient online registration</p>
@@ -42,7 +42,7 @@ export default function Enrollment() {
                     <Button
                       key={link.grade}
                       asChild
-                      className="bg-blue-600 hover:bg-blue-700"
+                      className="bg-green-600 hover:bg-green-700"
                     >
                       <a href={link.url} target="_blank" rel="noopener noreferrer">
                         {link.grade}
@@ -58,8 +58,8 @@ export default function Enrollment() {
           <Card className="shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <CardContent className="p-8">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="text-blue-600 dark:text-blue-400 h-8 w-8" />
+                <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="text-green-600 dark:text-green-400 h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Phone & Text Enrollment</h3>
                 <p className="text-gray-600 dark:text-gray-300 mt-2">Enroll via text message or phone call</p>
@@ -70,7 +70,7 @@ export default function Enrollment() {
               <div className="text-center">
                 <Button
                   onClick={() => scrollToSection("staff")}
-                  className="bg-blue-500 hover:bg-blue-600 text-white"
+                  className="bg-green-500 hover:bg-green-600 text-white"
                 >
                   <Users className="mr-2 h-4 w-4" />
                   View Staff Contacts

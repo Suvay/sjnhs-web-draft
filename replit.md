@@ -22,6 +22,9 @@ Preferred communication style: Simple, everyday language.
 - **Production Deployment**: Website now live at squidyvalour.optikl.ink with all features working
 - **Dark Mode Primary**: Changed default theme to dark mode as the primary visual experience
 - **Green Primary Colors**: Updated to green color scheme (hsl(142, 71%, 45%)) as requested by user
+- **Homepage Redesign**: Implemented comprehensive green-themed color palette with specific text colors - "San Jose National High School" in green, "SOAR HIGH!" in white, "San Jose High!" in green
+- **Green Button Design**: All buttons across homepage styled in clean, accessible green with white text for contrast
+- **Navigation Color Update**: Updated navigation, mobile menu, and all interactive elements to use green color scheme
 - **Accessibility Compliance**: Both themes maintain proper contrast ratios and readability standards
 
 ## System Architecture

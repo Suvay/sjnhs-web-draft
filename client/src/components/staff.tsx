@@ -54,7 +54,7 @@ export default function Staff() {
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{member.name}</h3>
                 <div className="flex items-center mb-3">
-                  <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                  <Badge variant="secondary" className="bg-green-100 text-green-800">
                     {member.grade}
                   </Badge>
                 </div>
@@ -64,7 +64,7 @@ export default function Staff() {
                 </div>
                 <Button
                   asChild
-                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  className="w-full bg-green-600 hover:bg-green-700"
                 >
                   <a href={`tel:${member.contact.replace(/-/g, '')}`}>
                     Call Now

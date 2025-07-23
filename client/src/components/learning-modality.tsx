@@ -19,7 +19,7 @@ export default function LearningModality() {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-green-50 dark:from-gray-900 dark:to-green-900/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -39,8 +39,8 @@ export default function LearningModality() {
             <div className="space-y-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="text-blue-600 dark:text-blue-400 h-4 w-4" />
+                  <div className="w-6 h-6 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="text-green-600 dark:text-green-400 h-4 w-4" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">{feature.title}</h4>
@@ -65,7 +65,7 @@ export default function LearningModality() {
                 className="w-16 h-16 bg-white bg-opacity-90 rounded-full hover:bg-opacity-100 transition-all"
                 onClick={() => console.log("Play educational video about modular learning")}
               >
-                <Play className="text-blue-600 h-6 w-6 ml-1" />
+                <Play className="text-green-600 h-6 w-6 ml-1" />
               </Button>
             </div>
             
