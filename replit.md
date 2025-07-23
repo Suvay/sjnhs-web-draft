@@ -13,7 +13,7 @@ Preferred communication style: Simple, everyday language.
 - **Migration to Replit**: Successfully migrated project from Replit Agent to standard Replit environment with clean deployment structure
 - **Dark/Light Mode Implementation**: Added complete theme toggle system with dark and light mode support to address eye strain concerns
 - **Theme Provider Integration**: Implemented React context-based theme system with localStorage persistence and smooth transitions
-- **Green Theme Implementation**: Changed from blue to eye-friendly green color scheme for navigation and interactive elements across both light and dark modes
+- **Classic School Colors**: Implemented traditional blue and gold color scheme appropriate for San Jose National High School
 - **Soft Background Modes**: Light mode uses soft beige/pastel background, dark mode provides comfortable dark gray themes
 - **Theme Toggle Button**: Added sun/moon toggle button in both desktop and mobile navigation for easy theme switching
 - **FAQ Button Repositioning**: Moved FAQ button to appear beside Contact Us in navigation bar as requested
@@ -21,7 +21,7 @@ Preferred communication style: Simple, everyday language.
 - **Static Build Configuration**: Configured project for static hosting deployment (no Node.js required on server)
 - **Production Deployment**: Website now live at squidyvalour.optikl.ink with all features working
 - **Dark Mode Primary**: Changed default theme to dark mode as the primary visual experience
-- **Eye-Friendly Green Colors**: Updated color palette to use soothing green tones (hsl(142, 71%, 45%)) for better eye comfort
+- **School-Appropriate Colors**: Updated to classic blue and gold color scheme (hsl(220, 91%, 50%)) more fitting for a Filipino national high school
 - **Accessibility Compliance**: Both themes maintain proper contrast ratios and readability standards
 
 ## System Architecture
