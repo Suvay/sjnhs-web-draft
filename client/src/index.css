@@ -6,6 +6,12 @@ html {
   color-scheme: dark light;
 }
 
+/* Ensure dark mode is default before JavaScript loads */
+html:not(.light) {
+  background-color: hsl(222, 84%, 4.9%);
+  color: hsl(210, 40%, 98%);
+}
+
 :root {
   --background: hsl(45, 30%, 98%);
   --foreground: hsl(220, 14%, 20%);
