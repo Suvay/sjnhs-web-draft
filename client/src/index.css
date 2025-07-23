@@ -23,7 +23,7 @@ html:not(.light) {
   --card-foreground: hsl(220, 14%, 20%);
   --border: hsl(45, 20%, 90%);
   --input: hsl(45, 20%, 90%);
-  --primary: hsl(220, 91%, 50%);
+  --primary: hsl(142, 71%, 45%);
   --primary-foreground: hsl(0, 0%, 98%);
   --secondary: hsl(45, 25%, 94%);
   --secondary-foreground: hsl(220, 14%, 25%);
@@ -31,15 +31,15 @@ html:not(.light) {
   --accent-foreground: hsl(220, 14%, 25%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(220, 91%, 50%);
+  --ring: hsl(142, 71%, 45%);
   --radius: 0.5rem;
 
-  /* Custom school colors - Classic Blue & Gold Theme */
-  --school-primary: hsl(220, 91%, 50%);
-  --school-primary-dark: hsl(220, 91%, 42%);
-  --school-primary-light: hsl(220, 91%, 65%);
-  --school-accent: hsl(45, 85%, 70%);
-  --school-accent-dark: hsl(45, 85%, 60%);
+  /* Custom school colors - Green Theme */
+  --school-primary: hsl(142, 71%, 45%);
+  --school-primary-dark: hsl(142, 71%, 38%);
+  --school-primary-light: hsl(142, 71%, 55%);
+  --school-accent: hsl(45, 40%, 85%);
+  --school-accent-dark: hsl(45, 35%, 75%);
   --school-background: hsl(45, 30%, 98%);
 }
 
@@ -54,7 +54,7 @@ html:not(.light) {
   --card-foreground: hsl(210, 40%, 98%);
   --border: hsl(217, 32%, 17%);
   --input: hsl(217, 32%, 17%);
-  --primary: hsl(220, 91%, 50%);
+  --primary: hsl(142, 71%, 45%);
   --primary-foreground: hsl(222, 84%, 4.9%);
   --secondary: hsl(217, 32%, 17%);
   --secondary-foreground: hsl(210, 40%, 98%);
@@ -62,14 +62,14 @@ html:not(.light) {
   --accent-foreground: hsl(210, 40%, 98%);
   --destructive: hsl(0, 62%, 50%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(220, 91%, 50%);
+  --ring: hsl(142, 71%, 45%);
 
   /* Custom school colors - Dark Mode (Primary) */
-  --school-primary: hsl(220, 91%, 50%);
-  --school-primary-dark: hsl(220, 91%, 42%);
-  --school-primary-light: hsl(220, 91%, 65%);
-  --school-accent: hsl(45, 85%, 70%);
-  --school-accent-dark: hsl(45, 85%, 60%);
+  --school-primary: hsl(142, 71%, 45%);
+  --school-primary-dark: hsl(142, 71%, 38%);
+  --school-primary-light: hsl(142, 71%, 55%);
+  --school-accent: hsl(217, 32%, 20%);
+  --school-accent-dark: hsl(217, 32%, 15%);
   --school-background: hsl(222, 84%, 4.9%);
 }
 
