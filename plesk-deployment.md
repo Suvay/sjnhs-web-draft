@@ -12,30 +12,20 @@ Repository URL: https://github.com/Suvay/sjnhs-web-draft
 - **Server path**: `/httpdocs`
 
 ### Additional Deployment Actions (Shell Commands):
-Add these commands in the "Enable additional deployment actions" section:
+Since npm is not available, use these commands instead:
 
 ```bash
-# Install Node.js dependencies
-npm install
-
-# Build the React application
-npm run build
-
-# Copy built files to web directory
-cp -r dist/public/* /var/www/vhosts/yourdomain.com/httpdocs/
-
+# Copy pre-built files from dist/public to web directory
+cp -r dist/public/* /var/www/vhosts/*/httpdocs/
 # Copy .htaccess for proper routing
-cp .htaccess /var/www/vhosts/yourdomain.com/httpdocs/
+cp .htaccess /var/www/vhosts/*/httpdocs/
 ```
 
-## Alternative Simplified Deployment Commands:
-If the above doesn't work, try this simpler approach:
-
-```bash
-npm install
-npm run build
-cp -r dist/public/* ./
-```
+## IMPORTANT: Pre-build Required
+Since OptikLink doesn't have Node.js/npm, you must:
+1. Build the project in Replit first: `npm run build`
+2. Commit the built files to GitHub
+3. Then Plesk will copy the pre-built files
 
 ## Important Notes:
 1. **No credentials needed** - GitHub repository is public
