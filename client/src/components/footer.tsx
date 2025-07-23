@@ -93,7 +93,7 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 mb-2">
             © 2023 Team Secret Indonesia –{" "}
-            <span className="text-blue-400 font-semibold">Maki Anjov O.</span>,{" "}
+            <span className="text-blue-400 font-semibold">David Kiel M.</span>,{" "}
             <span className="text-blue-400 font-semibold">Geoff Tristan B.</span>,{" "}
             <span className="text-blue-400 font-semibold">Sophia Nicole G.</span>
           </p>
