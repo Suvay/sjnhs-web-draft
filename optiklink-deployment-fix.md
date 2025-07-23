@@ -18,18 +18,19 @@ I've updated the setup to commit pre-built files to GitHub.
 
 ### Updated Deployment Actions:
 ```bash
-# Copy pre-built website files to web directory
 cp -r dist/public/* ./
-# Copy .htaccess for URL routing  
 cp .htaccess ./
 ```
 
-### Alternative (if above doesn't work):
+### If cp -r doesn't work, try this simpler approach:
 ```bash
-# Simple copy commands
-find dist/public -type f -exec cp {} ./ \;
+cp dist/public/index.html ./
+cp -r dist/public/assets ./
 cp .htaccess ./
 ```
+
+### Most Basic (if nothing else works):
+Leave the deployment actions **EMPTY** - the files are already in the repository and will be copied automatically.
 
 ## What Changed:
 1. ✅ Built the website files (already done)
