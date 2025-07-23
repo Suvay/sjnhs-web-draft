@@ -5,10 +5,10 @@ OptikLink has very limited shell commands available (no npm, no find).
 
 ## Solution: Use Basic Commands Only
 
-### Option 1: Basic Copy Commands
+### Option 1: Basic Copy Commands (WORKING)
 ```bash
 cp -r dist/public/* ./
-cp .htaccess ./
+cp .htaccess ./ 2>/dev/null || true
 ```
 
 ### Option 2: Individual File Copy (if Option 1 fails)
