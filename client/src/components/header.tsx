@@ -28,7 +28,7 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-4">
             <div className="flex-shrink-0">
-              <h1 className="text-xl font-bold text-blue-800">
+              <h1 className="text-xl font-bold text-green-700">
                 San Jose National High School
               </h1>
             </div>
@@ -59,7 +59,7 @@ export default function Header() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-green-600 font-medium transition-colors"
               >
                 {item.label}
               </button>
@@ -79,7 +79,7 @@ export default function Header() {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium py-2"
+                    className="block w-full text-left text-gray-700 hover:text-green-600 font-medium py-2"
                   >
                     {item.label}
                   </button>

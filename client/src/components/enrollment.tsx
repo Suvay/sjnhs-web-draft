@@ -18,7 +18,7 @@ export default function Enrollment() {
   };
 
   return (
-    <section id="enrollment" className="py-16 bg-gray-50">
+    <section id="enrollment" className="py-16 green-bg-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Enrollment Options</h2>
@@ -29,8 +29,8 @@ export default function Enrollment() {
           <Card className="shadow-sm">
             <CardContent className="p-8">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Laptop className="text-blue-600 h-8 w-8" />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Laptop className="text-green-600 h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Online Enrollment</h3>
                 <p className="text-gray-600 mt-2">Quick and convenient online registration</p>
@@ -42,7 +42,7 @@ export default function Enrollment() {
                     <Button
                       key={link.grade}
                       asChild
-                      className="bg-blue-600 hover:bg-blue-700"
+                      className="bg-green-600 hover:bg-green-700"
                     >
                       <a href={link.url} target="_blank" rel="noopener noreferrer">
                         {link.grade}
@@ -58,8 +58,8 @@ export default function Enrollment() {
           <Card className="shadow-sm">
             <CardContent className="p-8">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="text-yellow-600 h-8 w-8" />
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="text-green-600 h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Phone & Text Enrollment</h3>
                 <p className="text-gray-600 mt-2">Enroll via text message or phone call</p>
@@ -70,7 +70,7 @@ export default function Enrollment() {
               <div className="text-center">
                 <Button
                   onClick={() => scrollToSection("staff")}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white"
+                  className="bg-green-500 hover:bg-green-600 text-white"
                 >
                   <Users className="mr-2 h-4 w-4" />
                   View Staff Contacts
