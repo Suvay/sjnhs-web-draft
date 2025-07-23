@@ -18,10 +18,17 @@ I've updated the setup to commit pre-built files to GitHub.
 
 ### Updated Deployment Actions:
 ```bash
-# Copy pre-built website files
-cp -r dist/public/* /var/www/vhosts/*/httpdocs/
-# Copy .htaccess for URL routing
-cp .htaccess /var/www/vhosts/*/httpdocs/
+# Copy pre-built website files to web directory
+cp -r dist/public/* ./
+# Copy .htaccess for URL routing  
+cp .htaccess ./
+```
+
+### Alternative (if above doesn't work):
+```bash
+# Simple copy commands
+find dist/public -type f -exec cp {} ./ \;
+cp .htaccess ./
 ```
 
 ## What Changed:

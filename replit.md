@@ -16,7 +16,10 @@ Preferred communication style: Simple, everyday language.
 - **Blue Theme Consistency**: Maintained blue color scheme for navigation and interactive elements across both light and dark modes
 - **Soft Background Modes**: Light mode uses soft beige/pastel background, dark mode provides comfortable dark gray themes
 - **Theme Toggle Button**: Added sun/moon toggle button in both desktop and mobile navigation for easy theme switching
-- **GitHub Pages Removal**: Removed all GitHub Pages-specific configurations and build outputs to prepare for standard web hosting
+- **FAQ Button Repositioning**: Moved FAQ button to appear beside Contact Us in navigation bar as requested
+- **OptikLink Deployment**: Successfully deployed to OptikLink hosting via Plesk with GitHub integration
+- **Static Build Configuration**: Configured project for static hosting deployment (no Node.js required on server)
+- **Production Deployment**: Website now live at squidyvalour.optikl.ink with all features working
 - **Accessibility Compliance**: Both themes maintain proper contrast ratios and readability standards
 
 ## System Architecture
