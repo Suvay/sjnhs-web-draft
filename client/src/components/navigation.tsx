@@ -19,6 +19,7 @@ import {
   Youtube
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface NavigationItem {
   label: string;
@@ -88,10 +89,7 @@ export default function Navigation() {
 
   const [location] = useLocation();
 
-  useEffect(() => {
-    // Allow light mode for green theme
-    document.documentElement.classList.remove('dark');
-  }, []);
+
 
   const toggleSection = (path: string) => {
     setOpenSections(prev => 
@@ -229,8 +227,9 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Desktop FAQ Link */}
-          <div className="hidden lg:flex items-center">
+          {/* Desktop FAQ Link and Theme Toggle */}
+          <div className="hidden lg:flex items-center space-x-2">
+            <ThemeToggle />
             <Button
               variant="outline"
               className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
@@ -262,13 +261,16 @@ export default function Navigation() {
               {/* Mobile Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Menu</h2>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <X className="h-6 w-6" />
-                </Button>
+                <div className="flex items-center space-x-2">
+                  <ThemeToggle />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <X className="h-6 w-6" />
+                  </Button>
+                </div>
               </div>
 
               {/* Mobile FAQ Link */}

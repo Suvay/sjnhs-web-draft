@@ -36,11 +36,11 @@ export default function Staff() {
   ];
 
   return (
-    <section id="staff" className="py-16 bg-white/50">
+    <section id="staff" className="py-16 bg-white/50 dark:bg-gray-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Meet Our Staff</h2>
-          <p className="text-xl text-gray-600">Contact our dedicated enrollment personnel for assistance</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Meet Our Staff</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Contact our dedicated enrollment personnel for assistance</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -52,13 +52,13 @@ export default function Staff() {
                 className="w-full h-48 object-cover"
               />
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{member.name}</h3>
                 <div className="flex items-center mb-3">
                   <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                     {member.grade}
                   </Badge>
                 </div>
-                <div className="flex items-center text-gray-600 mb-4">
+                <div className="flex items-center text-gray-600 dark:text-gray-300 mb-4">
                   <Phone className="mr-2 h-4 w-4" />
                   <span className="font-mono">{member.contact}</span>
                 </div>

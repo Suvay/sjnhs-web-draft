@@ -11,12 +11,13 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes (January 23, 2025)
 
 - **Migration to Replit**: Successfully migrated project from Replit Agent to standard Replit environment with clean deployment structure
-- **Blue Navigation with Soft Background**: Reverted navigation bar to blue theme as requested while implementing soft, eye-friendly background throughout the site
-- **Soft Background Implementation**: Applied light beige/pastel background (hsl(45, 30%, 98%)) across all sections to reduce eye strain while maintaining readability
-- **Blue Theme Consistency**: Updated all interactive elements (buttons, links, badges, icons) to use blue color scheme while keeping navigation prominent
+- **Dark/Light Mode Implementation**: Added complete theme toggle system with dark and light mode support to address eye strain concerns
+- **Theme Provider Integration**: Implemented React context-based theme system with localStorage persistence and smooth transitions
+- **Blue Theme Consistency**: Maintained blue color scheme for navigation and interactive elements across both light and dark modes
+- **Soft Background Modes**: Light mode uses soft beige/pastel background, dark mode provides comfortable dark gray themes
+- **Theme Toggle Button**: Added sun/moon toggle button in both desktop and mobile navigation for easy theme switching
 - **GitHub Pages Removal**: Removed all GitHub Pages-specific configurations and build outputs to prepare for standard web hosting
-- **Light Mode Theme**: Maintained light mode with soft background colors for better visual comfort and accessibility
-- **Visual Hierarchy**: Preserved blue header navigation while creating gentle visual separation through soft background tones in content areas
+- **Accessibility Compliance**: Both themes maintain proper contrast ratios and readability standards
 
 ## System Architecture
 

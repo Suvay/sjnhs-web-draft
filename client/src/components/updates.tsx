@@ -12,11 +12,11 @@ export default function Updates() {
   ];
 
   return (
-    <section id="updates" className="py-16 bg-white/50">
+    <section id="updates" className="py-16 bg-white/50 dark:bg-gray-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Updates!</h2>
-          <p className="text-xl text-gray-600">Stay informed with the latest news and announcements</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Updates!</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Stay informed with the latest news and announcements</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -30,10 +30,10 @@ export default function Updates() {
                   className="rounded-lg w-full h-64 object-cover mb-6"
                 />
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Enroll now and be part of our community!
                 </h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                   Welcome to our school's page for admission! We encourage you to do the{" "}
                   <strong>online enrollment</strong> for the school year 2024 - 2025. Join our vibrant learning community where students soar to new heights.
                 </p>
@@ -45,7 +45,7 @@ export default function Updates() {
                         <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                           {link.grade}
                         </Badge>
-                        <span className="text-gray-700">{link.description}</span>
+                        <span className="text-gray-700 dark:text-gray-300">{link.description}</span>
                       </div>
                       <Button
                         asChild

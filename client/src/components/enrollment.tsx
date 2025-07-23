@@ -18,11 +18,11 @@ export default function Enrollment() {
   };
 
   return (
-    <section id="enrollment" className="py-16 bg-white/70">
+    <section id="enrollment" className="py-16 bg-white/70 dark:bg-gray-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Enrollment Options</h2>
-          <p className="text-xl text-gray-600">Multiple ways to secure your spot at San Jose National High School</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Enrollment Options</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Multiple ways to secure your spot at San Jose National High School</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -32,11 +32,11 @@ export default function Enrollment() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Laptop className="text-blue-600 h-8 w-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Online Enrollment</h3>
-                <p className="text-gray-600 mt-2">Quick and convenient online registration</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Online Enrollment</h3>
+                <p className="text-gray-600 dark:text-gray-300 mt-2">Quick and convenient online registration</p>
               </div>
               <div className="space-y-4">
-                <p className="text-gray-700 text-center">Click on your grade level to begin enrollment:</p>
+                <p className="text-gray-700 dark:text-gray-300 text-center">Click on your grade level to begin enrollment:</p>
                 <div className="grid grid-cols-2 gap-3">
                   {onlineEnrollmentLinks.map((link) => (
                     <Button
@@ -61,10 +61,10 @@ export default function Enrollment() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="text-blue-600 h-8 w-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Phone & Text Enrollment</h3>
-                <p className="text-gray-600 mt-2">Enroll via text message or phone call</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Phone & Text Enrollment</h3>
+                <p className="text-gray-600 dark:text-gray-300 mt-2">Enroll via text message or phone call</p>
               </div>
-              <p className="text-gray-700 text-center mb-6">
+              <p className="text-gray-700 dark:text-gray-300 text-center mb-6">
                 Contact the personnel in charge for your grade level to complete enrollment by phone.
               </p>
               <div className="text-center">
