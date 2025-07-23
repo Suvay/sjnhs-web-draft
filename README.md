@@ -117,7 +117,7 @@ npm run check
 
 ## 📞 Support
 
-For technical support or content updates, please contact the school administration.
+For technical support or content updates, please contact the developer at +63 9166037530 on Telegram.
 
 ---
 
