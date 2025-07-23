@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  color-scheme: light dark;
+  color-scheme: dark light;
 }
 
 :root {
@@ -44,7 +44,7 @@ html {
   --muted-foreground: hsl(215, 20%, 65%);
   --popover: hsl(222, 84%, 4.9%);
   --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 4.9%);
+  --card: hsl(217, 32%, 12%);
   --card-foreground: hsl(210, 40%, 98%);
   --border: hsl(217, 32%, 17%);
   --input: hsl(217, 32%, 17%);
@@ -58,44 +58,13 @@ html {
   --destructive-foreground: hsl(210, 40%, 98%);
   --ring: hsl(207, 90%, 54%);
 
-  /* Custom school colors - Dark Mode */
+  /* Custom school colors - Dark Mode (Primary) */
   --school-primary: hsl(207, 90%, 54%);
   --school-primary-dark: hsl(207, 90%, 45%);
   --school-primary-light: hsl(207, 80%, 65%);
   --school-accent: hsl(217, 32%, 20%);
   --school-accent-dark: hsl(217, 32%, 15%);
   --school-background: hsl(222, 84%, 4.9%);
-}
-
-.dark {
-  --background: hsl(150, 15%, 6%);
-  --foreground: hsl(120, 20%, 95%);
-  --muted: hsl(150, 10%, 12%);
-  --muted-foreground: hsl(120, 15%, 65%);
-  --popover: hsl(150, 15%, 8%);
-  --popover-foreground: hsl(120, 20%, 95%);
-  --card: hsl(150, 15%, 8%);
-  --card-foreground: hsl(120, 20%, 95%);
-  --border: hsl(150, 10%, 18%);
-  --input: hsl(150, 10%, 18%);
-  --primary: hsl(142, 55%, 55%);
-  --primary-foreground: hsl(150, 15%, 6%);
-  --secondary: hsl(150, 10%, 12%);
-  --secondary-foreground: hsl(120, 20%, 95%);
-  --accent: hsl(150, 10%, 15%);
-  --accent-foreground: hsl(120, 20%, 95%);
-  --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(142, 55%, 55%);
-  --radius: 0.5rem;
-
-  /* Dark mode school colors */
-  --school-primary: hsl(142, 55%, 55%);
-  --school-primary-dark: hsl(142, 60%, 48%);
-  --school-primary-light: hsl(142, 50%, 62%);
-  --school-accent: hsl(120, 35%, 70%);
-  --school-accent-dark: hsl(120, 40%, 60%);
-  --school-background: hsl(150, 15%, 8%);
 }
 
 @layer base {

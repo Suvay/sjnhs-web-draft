@@ -20,6 +20,7 @@ Preferred communication style: Simple, everyday language.
 - **OptikLink Deployment**: Successfully deployed to OptikLink hosting via Plesk with GitHub integration
 - **Static Build Configuration**: Configured project for static hosting deployment (no Node.js required on server)
 - **Production Deployment**: Website now live at squidyvalour.optikl.ink with all features working
+- **Dark Mode Primary**: Changed default theme to dark mode as the primary visual experience
 - **Accessibility Compliance**: Both themes maintain proper contrast ratios and readability standards
 
 ## System Architecture
