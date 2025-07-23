@@ -19,19 +19,19 @@ export default function LearningModality() {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
               Learning Delivery Modality
             </h2>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
               School opening will not necessarily mean traditional face-to-face learning in the classroom. 
               This refers to a learning delivery modality where learning takes place between the teacher 
               and the learners who are geographically remote from each other during instruction.
             </p>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
               Our modular (print) distance learning approach ensures quality education reaches every student, 
               regardless of their location or circumstances.
             </p>
@@ -39,12 +39,12 @@ export default function LearningModality() {
             <div className="space-y-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="text-blue-600 h-4 w-4" />
+                  <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="text-blue-600 dark:text-blue-400 h-4 w-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">{feature.title}</h4>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">{feature.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -69,10 +69,10 @@ export default function LearningModality() {
               </Button>
             </div>
             
-            <Card className="absolute bottom-4 left-4 bg-white bg-opacity-90 backdrop-blur-sm">
+            <Card className="absolute bottom-4 left-4 bg-white dark:bg-gray-800 bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm dark:border-gray-600">
               <div className="p-3">
-                <p className="text-sm font-semibold text-gray-800">Watch: Modular Distance Learning</p>
-                <p className="text-xs text-gray-600">Learn about our learning delivery approach</p>
+                <p className="text-sm font-semibold text-gray-800 dark:text-white">Watch: Modular Distance Learning</p>
+                <p className="text-xs text-gray-600 dark:text-gray-300">Learn about our learning delivery approach</p>
               </div>
             </Card>
           </div>

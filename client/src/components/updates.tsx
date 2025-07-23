@@ -22,7 +22,7 @@ export default function Updates() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Update Card */}
           <div className="lg:col-span-2">
-            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/30 border-blue-200 dark:border-blue-800">
               <CardContent className="p-8">
                 <img
                   src="https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Students+Studying"
@@ -40,7 +40,7 @@ export default function Updates() {
                 
                 <div className="space-y-3">
                   {enrollmentLinks.map((link) => (
-                    <div key={link.grade} className="flex items-center justify-between p-4 bg-white rounded-lg border">
+                    <div key={link.grade} className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-600">
                       <div className="flex items-center space-x-3">
                         <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                           {link.grade}
@@ -66,27 +66,27 @@ export default function Updates() {
 
           {/* Sidebar Updates */}
           <div className="space-y-6">
-            <Card className="shadow-sm">
+            <Card className="shadow-sm dark:bg-gray-800 dark:border-gray-700">
               <CardContent className="p-6">
                 <img
                   src="https://via.placeholder.com/400x250/F59E0B/FFFFFF?text=Graduation+Ceremony"
                   alt="Graduation ceremony with students celebrating"
                   className="rounded-lg w-full h-40 object-cover mb-4"
                 />
-                <h4 className="font-bold text-gray-900 mb-2">Graduation Ceremony 2024</h4>
-                <p className="text-gray-600 text-sm">Celebrating our graduating class and their achievements.</p>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-2">Graduation Ceremony 2024</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">Celebrating our graduating class and their achievements.</p>
               </CardContent>
             </Card>
 
-            <Card className="shadow-sm">
+            <Card className="shadow-sm dark:bg-gray-800 dark:border-gray-700">
               <CardContent className="p-6">
                 <img
                   src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Learning+Modality"
                   alt="Teacher instructing students in modern classroom"
                   className="rounded-lg w-full h-40 object-cover mb-4"
                 />
-                <h4 className="font-bold text-gray-900 mb-2">Learning Delivery Modality</h4>
-                <p className="text-gray-600 text-sm">Information about our flexible learning approaches for all students.</p>
+                <h4 className="font-bold text-gray-900 dark:text-white mb-2">Learning Delivery Modality</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">Information about our flexible learning approaches for all students.</p>
               </CardContent>
             </Card>
           </div>
