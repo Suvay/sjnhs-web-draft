@@ -12,7 +12,7 @@ export default function Updates() {
   ];
 
   return (
-    <section id="updates" className="py-16 bg-white">
+    <section id="updates" className="py-16 bg-white/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Updates!</h2>
@@ -22,7 +22,7 @@ export default function Updates() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Update Card */}
           <div className="lg:col-span-2">
-            <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
+            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
               <CardContent className="p-8">
                 <img
                   src="https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Students+Studying"
@@ -42,7 +42,7 @@ export default function Updates() {
                   {enrollmentLinks.map((link) => (
                     <div key={link.grade} className="flex items-center justify-between p-4 bg-white rounded-lg border">
                       <div className="flex items-center space-x-3">
-                        <Badge variant="secondary" className="bg-green-100 text-green-800">
+                        <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                           {link.grade}
                         </Badge>
                         <span className="text-gray-700">{link.description}</span>
@@ -50,7 +50,7 @@ export default function Updates() {
                       <Button
                         asChild
                         size="sm"
-                        className="bg-green-600 hover:bg-green-700"
+                        className="bg-blue-600 hover:bg-blue-700"
                       >
                         <a href={link.url} target="_blank" rel="noopener noreferrer">
                           Enroll Now

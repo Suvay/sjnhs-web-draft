@@ -125,8 +125,8 @@ export default function Navigation() {
         <Link href={item.path}>
           <Button
             variant="ghost"
-            className={`flex items-center space-x-1 text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors ${
-              isActive(item.path) ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20' : ''
+            className={`flex items-center space-x-1 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors ${
+              isActive(item.path) ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' : ''
             }`}
           >
             <span>{item.label}</span>
@@ -143,7 +143,7 @@ export default function Navigation() {
                   <Button
                     variant="ghost"
                     className={`w-full justify-start px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                      isActive(child.path) ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400' : ''
+                      isActive(child.path) ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : ''
                     }`}
                     onClick={closeMenu}
                   >
@@ -169,7 +169,7 @@ export default function Navigation() {
             <Button
               variant="ghost"
               className={`w-full justify-between px-6 py-4 text-left text-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 ${
-                isActive(item.path) ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20' : ''
+                isActive(item.path) ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' : ''
               }`}
             >
               <div className="flex items-center space-x-3">
@@ -185,7 +185,7 @@ export default function Navigation() {
                 <Button
                   variant="ghost"
                   className={`w-full justify-start px-12 py-3 text-base text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 ${
-                    isActive(child.path) ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20' : ''
+                    isActive(child.path) ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' : ''
                   }`}
                   onClick={closeMenu}
                 >
@@ -203,7 +203,7 @@ export default function Navigation() {
         <Button
           variant="ghost"
           className={`w-full justify-start px-6 py-4 text-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 ${
-            isActive(item.path) ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20' : ''
+            isActive(item.path) ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' : ''
           }`}
           onClick={closeMenu}
         >
@@ -223,7 +223,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <Link href="/">
-              <h1 className="text-xl font-bold text-green-700 dark:text-green-400 cursor-pointer">
+              <h1 className="text-xl font-bold text-blue-800 dark:text-blue-400 cursor-pointer">
                 San Jose National High School
               </h1>
             </Link>

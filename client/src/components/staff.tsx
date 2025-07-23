@@ -36,7 +36,7 @@ export default function Staff() {
   ];
 
   return (
-    <section id="staff" className="py-16 bg-green-50">
+    <section id="staff" className="py-16 bg-white/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Meet Our Staff</h2>
@@ -54,7 +54,7 @@ export default function Staff() {
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
                 <div className="flex items-center mb-3">
-                  <Badge variant="secondary" className="bg-green-100 text-green-800">
+                  <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                     {member.grade}
                   </Badge>
                 </div>
@@ -64,7 +64,7 @@ export default function Staff() {
                 </div>
                 <Button
                   asChild
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-blue-600 hover:bg-blue-700"
                 >
                   <a href={`tel:${member.contact.replace(/-/g, '')}`}>
                     Call Now

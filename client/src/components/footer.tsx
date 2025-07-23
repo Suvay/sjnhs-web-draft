@@ -30,21 +30,21 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
+                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="h-5 w-5" />
@@ -72,18 +72,18 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
             <div className="space-y-3">
               <div className="flex items-start space-x-2">
-                <MapPin className="text-green-400 mt-1 h-4 w-4 flex-shrink-0" />
+                <MapPin className="text-blue-400 mt-1 h-4 w-4 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">
                   San Jose National High School<br />
                   San Jose, Philippines
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="text-green-400 h-4 w-4 flex-shrink-0" />
+                <Mail className="text-blue-400 h-4 w-4 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">info@sjnhs.edu.ph</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="text-green-400 h-4 w-4 flex-shrink-0" />
+                <Phone className="text-blue-400 h-4 w-4 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">Main Office: (XXX) XXX-XXXX</span>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400">
             © 2024 San Jose National High School. All rights reserved.{" "}
-            <span className="text-green-400 font-semibold">SOAR HIGH!</span>
+            <span className="text-blue-400 font-semibold">SOAR HIGH!</span>
           </p>
         </div>
       </div>

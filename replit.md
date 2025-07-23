@@ -11,11 +11,12 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes (January 23, 2025)
 
 - **Migration to Replit**: Successfully migrated project from Replit Agent to standard Replit environment with clean deployment structure
-- **Green Theme Implementation**: Completely revised color scheme to use pleasant, calming green tones across all components (buttons, links, backgrounds, navigation)
-- **Accessibility Improvements**: Ensured proper contrast ratios and readability with the new green theme while maintaining professional appearance
+- **Blue Navigation with Soft Background**: Reverted navigation bar to blue theme as requested while implementing soft, eye-friendly background throughout the site
+- **Soft Background Implementation**: Applied light beige/pastel background (hsl(45, 30%, 98%)) across all sections to reduce eye strain while maintaining readability
+- **Blue Theme Consistency**: Updated all interactive elements (buttons, links, badges, icons) to use blue color scheme while keeping navigation prominent
 - **GitHub Pages Removal**: Removed all GitHub Pages-specific configurations and build outputs to prepare for standard web hosting
-- **Light Mode Theme**: Switched from forced dark mode to light mode to better showcase the green color scheme
-- **Component Consistency**: Updated all components (hero, navigation, staff, enrollment, updates, footer) to use consistent green theming
+- **Light Mode Theme**: Maintained light mode with soft background colors for better visual comfort and accessibility
+- **Visual Hierarchy**: Preserved blue header navigation while creating gentle visual separation through soft background tones in content areas
 
 ## System Architecture
 
