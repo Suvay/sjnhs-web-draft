@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,14 +28,18 @@ export default function SiteSettings() {
   const { data: siteSettings, isLoading } = useQuery({
     queryKey: ["/api/settings"],
     enabled: !!token,
-    onSuccess: (data: SiteSetting[]) => {
-      const settingsObj = data.reduce((acc, setting) => {
+  });
+
+  // Update local settings when data changes
+  React.useEffect(() => {
+    if (siteSettings) {
+      const settingsObj = siteSettings.reduce((acc: Record<string, string>, setting: SiteSetting) => {
         acc[setting.key] = setting.value;
         return acc;
       }, {} as Record<string, string>);
       setSettings(settingsObj);
-    },
-  });
+    }
+  }, [siteSettings]);
 
   const updateMutation = useMutation({
     mutationFn: async (data: { key: string; value: string }) => {
