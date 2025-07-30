@@ -2,6 +2,7 @@ import Navigation from "@/components/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
 import { 
   Calendar, 
   Megaphone, 
@@ -11,48 +12,39 @@ import {
   ExternalLink
 } from "lucide-react";
 
-export default function Updates() {
-  const calendarEvents = [
-    {
-      title: "First Quarter Examinations",
-      date: "February 10-14, 2025",
-      type: "Academic",
-      status: "upcoming"
-    },
-    {
-      title: "Science Fair",
-      date: "March 15, 2025",
-      type: "Event",
-      status: "upcoming"
-    },
-    {
-      title: "Parent-Teacher Conference",
-      date: "July 12, 2025",
-      type: "Meeting",
-      status: "Ended"
-    }
-  ];
+interface Announcement {
+  id: number;
+  title: string;
+  content: string;
+  isPublished: boolean;
+  createdAt: string;
+  createdBy: number;
+}
 
-  const announcements = [
-    {
-      title: "Enrollment for SY 2025-2026 Extended",
-      content: "Due to popular demand, enrollment period has been extended until February 28, 2025.",
-      date: "January 20, 2025",
-      priority: "high"
-    },
-    {
-      title: "New Library Hours",
-      content: "The school library will now be open from 7:00 AM to 6:00 PM starting February 1, 2025.",
-      date: "January 18, 2025",
-      priority: "medium"
-    },
-    {
-      title: "Sports Tryouts Beginning",
-      content: "Tryouts for basketball, volleyball, and track and field teams start February 5, 2025.",
-      date: "January 15, 2025",
-      priority: "low"
-    }
-  ];
+interface Event {
+  id: number;
+  title: string;
+  description: string;
+  eventDate: string;
+  location: string;
+  isPublished: boolean;
+  createdBy: number;
+}
+
+export default function Updates() {
+  // Fetch real announcements from database
+  const { data: announcements = [], isLoading: announcementsLoading } = useQuery({
+    queryKey: ["/api/announcements"],
+  });
+
+  // Fetch real events from database
+  const { data: events = [], isLoading: eventsLoading } = useQuery({
+    queryKey: ["/api/events"],
+  });
+
+  // Filter for published announcements and events
+  const publishedAnnouncements = announcements.filter((announcement: Announcement) => announcement.isPublished);
+  const publishedEvents = events.filter((event: Event) => event.isPublished);
 
   const bulletinItems = [
     {
@@ -93,14 +85,34 @@ export default function Updates() {
     }
   ];
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case "high": return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
-      case "medium": return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200";
-      case "low": return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
-      default: return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
+  const getEventStatus = (eventDate: string) => {
+    const now = new Date();
+    const event = new Date(eventDate);
+    
+    if (event > now) return "upcoming";
+    if (event.toDateString() === now.toDateString()) return "ongoing";
+    return "ended";
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "upcoming": return "bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900 dark:text-blue-100";
+      case "ongoing": return "bg-green-100 text-green-800 border-green-200 dark:bg-green-900 dark:text-green-100";
+      case "ended": return "bg-gray-100 text-gray-800 border-gray-200 dark:bg-gray-900 dark:text-gray-100";
+      default: return "bg-gray-100 text-gray-800 border-gray-200 dark:bg-gray-900 dark:text-gray-100";
     }
   };
+
+  if (announcementsLoading || eventsLoading) {
+    return (
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <Navigation />
+        <div className="container mx-auto px-6 py-8">
+          <div className="text-center">Loading updates...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -129,18 +141,27 @@ export default function Updates() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {calendarEvents.map((event, index) => (
-                      <div key={index} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                        <div>
-                          <h4 className="font-semibold text-gray-900 dark:text-white">{event.title}</h4>
-                          <div className="flex items-center space-x-2 mt-1">
-                            <Clock className="h-4 w-4 text-gray-500" />
-                            <span className="text-sm text-gray-600 dark:text-gray-400">{event.date}</span>
+                    {publishedEvents.length > 0 ? publishedEvents.map((event: Event) => {
+                      const status = getEventStatus(event.eventDate);
+                      return (
+                        <div key={event.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                          <div>
+                            <h4 className="font-semibold text-gray-900 dark:text-white">{event.title}</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                              {new Date(event.eventDate).toLocaleDateString()} • {event.location}
+                            </p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{event.description}</p>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Badge className={getStatusColor(status)}>{status}</Badge>
                           </div>
                         </div>
-                        <Badge variant="outline">{event.type}</Badge>
+                      );
+                    }) : (
+                      <div className="text-center py-4 text-gray-600 dark:text-gray-400">
+                        No events scheduled at this time.
                       </div>
-                    ))}
+                    )}
                   </div>
                   <Button variant="outline" className="w-full mt-4">
                     <Calendar className="h-4 w-4 mr-2" />
@@ -159,18 +180,24 @@ export default function Updates() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {announcements.map((announcement, index) => (
-                      <div key={index} className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                    {publishedAnnouncements.length > 0 ? publishedAnnouncements.map((announcement: Announcement) => (
+                      <div key={announcement.id} className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
                         <div className="flex items-start justify-between mb-2">
                           <h4 className="font-semibold text-gray-900 dark:text-white">{announcement.title}</h4>
-                          <Badge className={getPriorityColor(announcement.priority)}>
-                            {announcement.priority}
+                          <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                            New
                           </Badge>
                         </div>
                         <p className="text-gray-700 dark:text-gray-300 text-sm mb-2">{announcement.content}</p>
-                        <span className="text-xs text-gray-500 dark:text-gray-400">{announcement.date}</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {new Date(announcement.createdAt).toLocaleDateString()}
+                        </span>
                       </div>
-                    ))}
+                    )) : (
+                      <div className="text-center py-4 text-gray-600 dark:text-gray-400">
+                        No announcements at this time.
+                      </div>
+                    )}
                   </div>
                   <Button variant="outline" className="w-full mt-4">
                     <Megaphone className="h-4 w-4 mr-2" />
@@ -202,19 +229,15 @@ export default function Updates() {
                       </div>
                     ))}
                   </div>
-                  <Button variant="outline" size="sm" className="w-full mt-4">
-                    <FileText className="h-3 w-3 mr-2" />
-                    Read More
-                  </Button>
                 </CardContent>
               </Card>
 
-              {/* Videos */}
+              {/* Video Gallery */}
               <Card>
                 <CardHeader>
                   <div className="flex items-center space-x-2">
                     <Play className="h-6 w-6 text-purple-600" />
-                    <CardTitle className="text-xl text-gray-900 dark:text-white">Videos</CardTitle>
+                    <CardTitle className="text-xl text-gray-900 dark:text-white">Video Gallery</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -222,28 +245,28 @@ export default function Updates() {
                     {videos.map((video, index) => (
                       <div key={index} className="group cursor-pointer">
                         <div className="relative">
-                          <img
-                            src={video.thumbnail}
+                          <img 
+                            src={video.thumbnail} 
                             alt={video.title}
-                            className="w-full h-24 object-cover rounded"
+                            className="w-full h-32 object-cover rounded"
                           />
-                          <div className="absolute inset-0 bg-black bg-opacity-40 rounded flex items-center justify-center group-hover:bg-opacity-50 transition-all">
-                            <Play className="h-6 w-6 text-white" />
+                          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded">
+                            <Play className="h-8 w-8 text-white" />
                           </div>
-                          <div className="absolute bottom-1 right-1 bg-black bg-opacity-70 text-white text-xs px-1 rounded">
+                          <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
                             {video.duration}
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h5 className="font-medium text-gray-900 dark:text-white text-sm">{video.title}</h5>
+                          <h6 className="font-medium text-sm text-gray-900 dark:text-white">{video.title}</h6>
                           <p className="text-xs text-gray-600 dark:text-gray-400">{video.description}</p>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <Button variant="outline" size="sm" className="w-full mt-4">
-                    <ExternalLink className="h-3 w-3 mr-2" />
-                    YouTube Channel
+                  <Button variant="outline" className="w-full mt-4">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View More Videos
                   </Button>
                 </CardContent>
               </Card>
