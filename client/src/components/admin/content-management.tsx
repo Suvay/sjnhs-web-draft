@@ -1,0 +1,199 @@
+import { useState } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
+import { Edit, Save, X } from "lucide-react";
+import { useAuth } from "@/lib/auth-context";
+
+interface ContentPage {
+  id: number;
+  pageKey: string;
+  title: string;
+  content: any;
+  isPublished: boolean;
+  lastModified: string;
+}
+
+export default function ContentManagement() {
+  const { token } = useAuth();
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+  const [editingPage, setEditingPage] = useState<number | null>(null);
+  const [editForm, setEditForm] = useState<Partial<ContentPage>>({});
+
+  const { data: pages, isLoading } = useQuery({
+    queryKey: ["/api/content"],
+    enabled: !!token,
+  });
+
+  const updatePageMutation = useMutation({
+    mutationFn: async (data: { id: number; updates: Partial<ContentPage> }) => {
+      const response = await fetch(`/api/content/${data.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data.updates),
+      });
+      if (!response.ok) throw new Error("Failed to update page");
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/content"] });
+      setEditingPage(null);
+      setEditForm({});
+      toast({
+        title: "Success",
+        description: "Page updated successfully",
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to update page",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const startEdit = (page: ContentPage) => {
+    setEditingPage(page.id);
+    setEditForm({
+      title: page.title,
+      content: typeof page.content === 'string' ? page.content : JSON.stringify(page.content, null, 2),
+      isPublished: page.isPublished,
+    });
+  };
+
+  const saveEdit = () => {
+    if (editingPage) {
+      updatePageMutation.mutate({
+        id: editingPage,
+        updates: editForm,
+      });
+    }
+  };
+
+  const cancelEdit = () => {
+    setEditingPage(null);
+    setEditForm({});
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <div className="text-center">
+          <div className="text-lg text-gray-600 dark:text-gray-400">Loading content pages...</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Content Management</h2>
+      </div>
+
+      <div className="grid gap-6">
+        {pages?.map((page: ContentPage) => (
+          <Card key={page.id}>
+            <CardHeader>
+              <div className="flex justify-between items-start">
+                <div>
+                  <CardTitle className="flex items-center gap-2">
+                    {editingPage === page.id ? (
+                      <Input
+                        value={editForm.title || ""}
+                        onChange={(e) => setEditForm({ ...editForm, title: e.target.value })}
+                        className="text-xl font-bold"
+                      />
+                    ) : (
+                      page.title
+                    )}
+                    <Badge variant={page.isPublished ? "default" : "secondary"}>
+                      {page.isPublished ? "Published" : "Draft"}
+                    </Badge>
+                  </CardTitle>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Page Key: {page.pageKey} • Last modified: {new Date(page.lastModified).toLocaleDateString()}
+                  </p>
+                </div>
+                <div className="flex gap-2">
+                  {editingPage === page.id ? (
+                    <>
+                      <Button onClick={saveEdit} size="sm" className="bg-green-600 hover:bg-green-700">
+                        <Save className="w-4 h-4 mr-2" />
+                        Save
+                      </Button>
+                      <Button onClick={cancelEdit} variant="outline" size="sm">
+                        <X className="w-4 h-4 mr-2" />
+                        Cancel
+                      </Button>
+                    </>
+                  ) : (
+                    <Button onClick={() => startEdit(page)} size="sm" variant="outline">
+                      <Edit className="w-4 h-4 mr-2" />
+                      Edit
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {editingPage === page.id ? (
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="content">Content (JSON format)</Label>
+                    <Textarea
+                      id="content"
+                      value={editForm.content || ""}
+                      onChange={(e) => setEditForm({ ...editForm, content: e.target.value })}
+                      rows={10}
+                      className="font-mono text-sm"
+                      placeholder="Enter content in JSON format..."
+                    />
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      id="published"
+                      checked={editForm.isPublished || false}
+                      onChange={(e) => setEditForm({ ...editForm, isPublished: e.target.checked })}
+                    />
+                    <Label htmlFor="published">Published</Label>
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                  <pre className="text-sm overflow-auto">
+                    {typeof page.content === 'string' 
+                      ? page.content 
+                      : JSON.stringify(page.content, null, 2)
+                    }
+                  </pre>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {(!pages || pages.length === 0) && (
+        <Card>
+          <CardContent className="text-center py-8">
+            <p className="text-gray-600 dark:text-gray-400">
+              No content pages found. Content will appear here once pages are created.
+            </p>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}
