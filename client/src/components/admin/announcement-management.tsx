@@ -33,7 +33,7 @@ export default function AnnouncementManagement() {
     isPublished: true,
   });
 
-  const { data: announcements, isLoading } = useQuery({
+  const { data: announcements = [], isLoading } = useQuery<Announcement[]>({
     queryKey: ["/api/announcements"],
     enabled: !!token,
   });

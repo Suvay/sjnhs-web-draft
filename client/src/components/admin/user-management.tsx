@@ -29,7 +29,7 @@ export default function UserManagement() {
     role: "editor",
   });
 
-  const { data: users, isLoading } = useQuery({
+  const { data: users = [], isLoading } = useQuery<User[]>({
     queryKey: ["/api/users"],
     enabled: !!token,
   });

@@ -25,7 +25,7 @@ export default function SiteSettings() {
   const [settings, setSettings] = useState<Record<string, string>>({});
   const [isSaving, setIsSaving] = useState(false);
 
-  const { data: siteSettings, isLoading } = useQuery({
+  const { data: siteSettings = [], isLoading } = useQuery<SiteSetting[]>({
     queryKey: ["/api/settings"],
     enabled: !!token,
   });
@@ -33,7 +33,7 @@ export default function SiteSettings() {
   // Update local settings when data changes
   React.useEffect(() => {
     if (siteSettings) {
-      const settingsObj = siteSettings.reduce((acc: Record<string, string>, setting: SiteSetting) => {
+      const settingsObj = (siteSettings as SiteSetting[]).reduce((acc: Record<string, string>, setting: SiteSetting) => {
         acc[setting.key] = setting.value;
         return acc;
       }, {} as Record<string, string>);

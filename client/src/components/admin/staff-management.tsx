@@ -40,7 +40,7 @@ export default function StaffManagement() {
     order: 0,
   });
 
-  const { data: staff, isLoading } = useQuery({
+  const { data: staff = [], isLoading } = useQuery<StaffMember[]>({
     queryKey: ["/api/staff"],
     enabled: !!token,
   });

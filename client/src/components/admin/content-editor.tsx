@@ -28,7 +28,7 @@ export function ContentEditor({ pageKey, title, content, onSave, onCancel }: Con
   };
 
   const updateField = (field: string, value: any) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev: any) => ({ ...prev, [field]: value }));
   };
 
   // Render specific editor based on page key

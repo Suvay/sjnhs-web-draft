@@ -24,7 +24,7 @@ export default function ContentManagement() {
   const [editingPage, setEditingPage] = useState<number | null>(null);
   const [editForm, setEditForm] = useState<Partial<ContentPage>>({});
 
-  const { data: pages, isLoading } = useQuery({
+  const { data: pages = [], isLoading } = useQuery<ContentPage[]>({
     queryKey: ["/api/content"],
     enabled: !!token,
   });

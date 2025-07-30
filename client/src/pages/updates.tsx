@@ -33,18 +33,18 @@ interface Event {
 
 export default function Updates() {
   // Fetch real announcements from database
-  const { data: announcements = [], isLoading: announcementsLoading } = useQuery({
+  const { data: announcements = [], isLoading: announcementsLoading } = useQuery<Announcement[]>({
     queryKey: ["/api/announcements"],
   });
 
   // Fetch real events from database
-  const { data: events = [], isLoading: eventsLoading } = useQuery({
+  const { data: events = [], isLoading: eventsLoading } = useQuery<Event[]>({
     queryKey: ["/api/events"],
   });
 
   // Filter for published announcements and events
-  const publishedAnnouncements = announcements.filter((announcement: Announcement) => announcement.isPublished);
-  const publishedEvents = events.filter((event: Event) => event.isPublished);
+  const publishedAnnouncements = (announcements as Announcement[]).filter((announcement: Announcement) => announcement.isPublished);
+  const publishedEvents = (events as Event[]).filter((event: Event) => event.isPublished);
 
   const bulletinItems = [
     {

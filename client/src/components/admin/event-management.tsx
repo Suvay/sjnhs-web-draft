@@ -38,7 +38,7 @@ export default function EventManagement() {
     isPublished: true,
   });
 
-  const { data: events, isLoading } = useQuery({
+  const { data: events = [], isLoading } = useQuery<Event[]>({
     queryKey: ["/api/events"],
     enabled: !!token,
   });
