@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { SchoolLogo } from "@/components/school-logo";
 
 interface NavigationItem {
   label: string;
@@ -246,9 +247,12 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <Link href="/">
-              <h1 className="text-xl font-bold text-green-600 dark:text-green-400 cursor-pointer">
-                San Jose National High School
-              </h1>
+              <div className="flex items-center space-x-3 cursor-pointer">
+                <SchoolLogo size="md" className="text-green-600 dark:text-green-400" />
+                <h1 className="text-xl font-bold text-green-600 dark:text-green-400">
+                  San Jose National High School
+                </h1>
+              </div>
             </Link>
           </div>
 
@@ -283,7 +287,10 @@ export default function Navigation() {
             >
               {/* Mobile Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Menu</h2>
+                <div className="flex items-center space-x-2">
+                  <SchoolLogo size="sm" />
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Menu</h2>
+                </div>
                 <div className="flex items-center space-x-2">
                   <ThemeToggle />
                   <Button
