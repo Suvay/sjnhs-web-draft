@@ -13,7 +13,7 @@ npm run build
 cp -r dist/public/* ./
 
 # Copy .htaccess for Apache servers
-cp .htaccess ./
+cp .htaccess dist/public/
 
 echo "Build complete! Files ready for static hosting."
 echo "Upload all files from dist/public/ to your web server."
