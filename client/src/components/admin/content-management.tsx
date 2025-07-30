@@ -2,13 +2,11 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Edit, Save, X } from "lucide-react";
+import { Edit, Eye } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import { ContentEditor } from "./content-editor";
 
 interface ContentPage {
   id: number;
@@ -66,16 +64,19 @@ export default function ContentManagement() {
     setEditingPage(page.id);
     setEditForm({
       title: page.title,
-      content: typeof page.content === 'string' ? page.content : JSON.stringify(page.content, null, 2),
+      content: page.content,
       isPublished: page.isPublished,
     });
   };
 
-  const saveEdit = () => {
+  const saveEdit = (contentData: any) => {
     if (editingPage) {
       updatePageMutation.mutate({
         id: editingPage,
-        updates: editForm,
+        updates: {
+          ...editForm,
+          content: JSON.stringify(contentData)
+        },
       });
     }
   };
@@ -103,85 +104,53 @@ export default function ContentManagement() {
 
       <div className="grid gap-6">
         {pages?.map((page: ContentPage) => (
-          <Card key={page.id}>
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <div>
-                  <CardTitle className="flex items-center gap-2">
-                    {editingPage === page.id ? (
-                      <Input
-                        value={editForm.title || ""}
-                        onChange={(e) => setEditForm({ ...editForm, title: e.target.value })}
-                        className="text-xl font-bold"
-                      />
-                    ) : (
-                      page.title
-                    )}
-                    <Badge variant={page.isPublished ? "default" : "secondary"}>
-                      {page.isPublished ? "Published" : "Draft"}
-                    </Badge>
-                  </CardTitle>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Page Key: {page.pageKey} • Last modified: {new Date(page.lastModified).toLocaleDateString()}
+          editingPage === page.id ? (
+            <ContentEditor
+              key={page.id}
+              pageKey={page.pageKey}
+              title={page.title}
+              content={page.content}
+              onSave={saveEdit}
+              onCancel={cancelEdit}
+            />
+          ) : (
+            <Card key={page.id}>
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <CardTitle className="flex items-center gap-2">
+                      {page.title}
+                      <Badge variant={page.isPublished ? "default" : "secondary"}>
+                        {page.isPublished ? "Published" : "Draft"}
+                      </Badge>
+                    </CardTitle>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Section: {page.pageKey.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())} • 
+                      Last modified: {new Date(page.lastModified).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button onClick={() => startEdit(page)} size="sm" className="bg-green-600 hover:bg-green-700">
+                      <Edit className="w-4 h-4 mr-2" />
+                      Edit Content
+                    </Button>
+                    <Button variant="outline" size="sm">
+                      <Eye className="w-4 h-4 mr-2" />
+                      Preview
+                    </Button>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                  <p className="text-sm text-green-800 dark:text-green-200">
+                    This content controls the <strong>{page.pageKey.replace('-', ' ')}</strong> section of your website. 
+                    Click "Edit Content" to make changes.
                   </p>
                 </div>
-                <div className="flex gap-2">
-                  {editingPage === page.id ? (
-                    <>
-                      <Button onClick={saveEdit} size="sm" className="bg-green-600 hover:bg-green-700">
-                        <Save className="w-4 h-4 mr-2" />
-                        Save
-                      </Button>
-                      <Button onClick={cancelEdit} variant="outline" size="sm">
-                        <X className="w-4 h-4 mr-2" />
-                        Cancel
-                      </Button>
-                    </>
-                  ) : (
-                    <Button onClick={() => startEdit(page)} size="sm" variant="outline">
-                      <Edit className="w-4 h-4 mr-2" />
-                      Edit
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              {editingPage === page.id ? (
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="content">Content (JSON format)</Label>
-                    <Textarea
-                      id="content"
-                      value={editForm.content || ""}
-                      onChange={(e) => setEditForm({ ...editForm, content: e.target.value })}
-                      rows={10}
-                      className="font-mono text-sm"
-                      placeholder="Enter content in JSON format..."
-                    />
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      id="published"
-                      checked={editForm.isPublished || false}
-                      onChange={(e) => setEditForm({ ...editForm, isPublished: e.target.checked })}
-                    />
-                    <Label htmlFor="published">Published</Label>
-                  </div>
-                </div>
-              ) : (
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                  <pre className="text-sm overflow-auto">
-                    {typeof page.content === 'string' 
-                      ? page.content 
-                      : JSON.stringify(page.content, null, 2)
-                    }
-                  </pre>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          )
         ))}
       </div>
 

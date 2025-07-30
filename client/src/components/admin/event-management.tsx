@@ -172,7 +172,12 @@ export default function EventManagement() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Event Management</h2>
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Event Management</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            Schedule and manage school events, activities, and important dates
+          </p>
+        </div>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button className="bg-green-600 hover:bg-green-700 text-white">

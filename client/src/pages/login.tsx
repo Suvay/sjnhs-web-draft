@@ -84,6 +84,15 @@ export default function Login() {
             >
               {isLoading ? "Signing in..." : "Sign In"}
             </Button>
+            
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg text-center">
+              <p className="text-sm text-blue-800 dark:text-blue-200 font-semibold mb-1">
+                Demo Account for School Staff
+              </p>
+              <p className="text-xs text-blue-700 dark:text-blue-300">
+                Username: <strong>demo</strong> | Password: <strong>demo123</strong>
+              </p>
+            </div>
           </form>
         </CardContent>
       </Card>

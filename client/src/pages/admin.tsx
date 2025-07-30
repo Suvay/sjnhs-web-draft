@@ -193,12 +193,40 @@ export default function AdminDashboard() {
               <CardHeader>
                 <CardTitle>Welcome to the Admin Dashboard</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-4">
                 <p className="text-gray-600 dark:text-gray-400">
-                  Use the tabs above to manage different aspects of the website. You can edit content, 
-                  manage announcements, update staff information, and create events. This system allows 
-                  school staff to maintain the website without technical knowledge.
+                  This dashboard allows you to update and manage all website content easily. No technical knowledge required!
                 </p>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Getting Started</h4>
+                    <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                      <li>• Use the tabs above to navigate different sections</li>
+                      <li>• Click "Edit" to modify any content</li>
+                      <li>• Remember to save your changes</li>
+                      <li>• Changes appear on the website immediately</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-green-900 dark:text-green-100 mb-2">What You Can Edit</h4>
+                    <ul className="text-sm text-green-800 dark:text-green-200 space-y-1">
+                      <li>• School announcements and news</li>
+                      <li>• Staff information and contacts</li>
+                      <li>• Event dates and descriptions</li>
+                      <li>• Website content and information</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                  <h4 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">💡 Tips for Success</h4>
+                  <p className="text-sm text-yellow-800 dark:text-yellow-200">
+                    Always preview your changes before publishing. If you make a mistake, you can always edit again. 
+                    For help, contact the IT administrator or refer to the user manual.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
