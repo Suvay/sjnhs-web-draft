@@ -28,9 +28,14 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     () => {
-      // Force light mode as default, even if localStorage is empty
+      // Force light mode as default and clear any old dark theme preference
       const stored = localStorage.getItem(storageKey) as Theme;
-      return stored || defaultTheme;
+      // If no stored value or it was dark, use light as default
+      if (!stored || stored === 'dark') {
+        localStorage.setItem(storageKey, defaultTheme);
+        return defaultTheme;
+      }
+      return stored;
     }
   )
 
