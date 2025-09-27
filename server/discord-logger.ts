@@ -285,39 +285,44 @@ function setupConsoleCapture() {
     debug: console.debug,
   };
 
-  console.log = (...args) => {
+  console.log = (...args: any[]) => {
     originalConsole.log(...args);
-    discordLogger.logConsole("info", ...args.map(arg => 
+    const message = args.map(arg => 
       typeof arg === "object" ? JSON.stringify(arg) : String(arg)
-    ));
+    ).join(" ");
+    discordLogger.logConsole("info", message);
   };
 
-  console.error = (...args) => {
+  console.error = (...args: any[]) => {
     originalConsole.error(...args);
-    discordLogger.logConsole("error", ...args.map(arg => 
+    const message = args.map(arg => 
       typeof arg === "object" ? JSON.stringify(arg) : String(arg)
-    ));
+    ).join(" ");
+    discordLogger.logConsole("error", message);
   };
 
-  console.warn = (...args) => {
+  console.warn = (...args: any[]) => {
     originalConsole.warn(...args);
-    discordLogger.logConsole("warn", ...args.map(arg => 
+    const message = args.map(arg => 
       typeof arg === "object" ? JSON.stringify(arg) : String(arg)
-    ));
+    ).join(" ");
+    discordLogger.logConsole("warn", message);
   };
 
-  console.info = (...args) => {
+  console.info = (...args: any[]) => {
     originalConsole.info(...args);
-    discordLogger.logConsole("info", ...args.map(arg => 
+    const message = args.map(arg => 
       typeof arg === "object" ? JSON.stringify(arg) : String(arg)
-    ));
+    ).join(" ");
+    discordLogger.logConsole("info", message);
   };
 
-  console.debug = (...args) => {
+  console.debug = (...args: any[]) => {
     originalConsole.debug(...args);
-    discordLogger.logConsole("debug", ...args.map(arg => 
+    const message = args.map(arg => 
       typeof arg === "object" ? JSON.stringify(arg) : String(arg)
-    ));
+    ).join(" ");
+    discordLogger.logConsole("debug", message);
   };
 }
 

@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { requireAuth, requireAdmin, requireEditor, hashPassword, comparePassword, generateToken, AuthRequest } from "./auth";
+import { discordLogger } from "./discord-logger";
 import { 
   insertUserSchema, 
   insertContentPageSchema, 
@@ -14,23 +15,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Authentication routes
   app.post("/api/auth/login", async (req, res) => {
+    const clientIp = req.ip || req.connection.remoteAddress || "unknown";
     try {
       const { username, password } = req.body;
 
       if (!username || !password) {
+        await discordLogger.logAuthEvent("Login Failed - Missing Credentials", username || "unknown", clientIp);
         return res.status(400).json({ message: "Username and password required" });
       }
 
       const user = await storage.getUserByUsername(username);
       if (!user) {
+        await discordLogger.logAuthEvent("Login Failed - User Not Found", username, clientIp);
         return res.status(401).json({ message: "Invalid credentials" });
       }
 
       const isValidPassword = await comparePassword(password, user.password);
       if (!isValidPassword) {
+        await discordLogger.logAuthEvent("Login Failed - Invalid Password", username, clientIp);
         return res.status(401).json({ message: "Invalid credentials" });
       }
 
+      // Successful login
+      await discordLogger.logAuthEvent("Login Successful", username, clientIp);
+      
       const token = generateToken(user);
       const { password: _, ...userWithoutPassword } = user;
 
@@ -40,6 +48,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     } catch (error) {
       console.error("Login error:", error);
+      await discordLogger.logAuthEvent("Login Error - Server Exception", req.body?.username || "unknown", clientIp);
       res.status(500).json({ message: "Internal server error" });
     }
   });
@@ -61,7 +70,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/users", requireAuth, requireAdmin, async (req, res) => {
+  app.post("/api/users", requireAuth, requireAdmin, async (req: AuthRequest, res) => {
     try {
       const userData = insertUserSchema.parse(req.body);
       const hashedPassword = await hashPassword(userData.password);
@@ -70,6 +79,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         ...userData,
         password: hashedPassword
       });
+
+      // Log user creation
+      await discordLogger.logServerEvent(
+        "New User Created", 
+        `Admin ${req.user!.username} created user: ${userData.username} with role: ${userData.role}`
+      );
 
       const { password: _, ...userWithoutPassword } = user;
       res.status(201).json(userWithoutPassword);
