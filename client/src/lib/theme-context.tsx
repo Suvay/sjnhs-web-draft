@@ -14,7 +14,7 @@ type ThemeProviderState = {
 }
 
 const initialState: ThemeProviderState = {
-  theme: 'dark',
+  theme: 'light',
   setTheme: () => null,
 }
 
@@ -22,13 +22,13 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'dark',
+  defaultTheme = 'light',
   storageKey = 'ui-theme',
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     () => {
-      // Force dark mode as default, even if localStorage is empty
+      // Force light mode as default, even if localStorage is empty
       const stored = localStorage.getItem(storageKey) as Theme;
       return stored || defaultTheme;
     }
