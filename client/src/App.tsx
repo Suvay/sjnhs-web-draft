@@ -12,6 +12,7 @@ import Resources from "@/pages/resources";
 import Updates from "@/pages/updates";
 import Contact from "@/pages/contact";
 import Login from "@/pages/login";
+import Signup from "@/pages/signup";
 import AdminDashboard from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/updates/:section" component={Updates} />
       <Route path="/contact" component={Contact} />
       <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
       <Route path="/admin" component={AdminDashboard} />
       <Route component={NotFound} />
     </Switch>

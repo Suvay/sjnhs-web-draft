@@ -85,6 +85,17 @@ export default function Login() {
               {isLoading ? "Signing in..." : "Sign In"}
             </Button>
             
+            <div className="text-center pt-4">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Don't have an account?{" "}
+                <Link href="/signup">
+                  <span className="text-green-600 hover:text-green-700 font-medium cursor-pointer">
+                    Create one here
+                  </span>
+                </Link>
+              </p>
+            </div>
+            
             <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg text-center">
               <p className="text-sm text-blue-800 dark:text-blue-200 font-semibold mb-1">
                 Demo Account for School Staff

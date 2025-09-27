@@ -58,6 +58,58 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json({ user: userWithoutPassword });
   });
 
+  // Public signup route
+  app.post("/api/auth/signup", async (req, res) => {
+    const clientIp = req.ip || req.connection.remoteAddress || "unknown";
+    try {
+      const { username, password } = req.body;
+
+      if (!username || !password) {
+        await discordLogger.logAuthEvent("Signup Failed - Missing Credentials", username || "unknown", clientIp);
+        return res.status(400).json({ message: "Username and password required" });
+      }
+
+      // Validate input
+      if (username.length < 3) {
+        await discordLogger.logAuthEvent("Signup Failed - Username Too Short", username, clientIp);
+        return res.status(400).json({ message: "Username must be at least 3 characters long" });
+      }
+
+      if (password.length < 6) {
+        await discordLogger.logAuthEvent("Signup Failed - Password Too Short", username, clientIp);
+        return res.status(400).json({ message: "Password must be at least 6 characters long" });
+      }
+
+      // Check if user already exists
+      const existingUser = await storage.getUserByUsername(username);
+      if (existingUser) {
+        await discordLogger.logAuthEvent("Signup Failed - Username Already Exists", username, clientIp);
+        return res.status(409).json({ message: "Username already exists" });
+      }
+
+      // Create new user with default role of "editor"
+      const hashedPassword = await hashPassword(password);
+      const newUser = await storage.createUser({
+        username,
+        password: hashedPassword,
+        role: "editor" // Default role for public signups
+      });
+
+      // Log successful signup
+      await discordLogger.logAuthEvent("Signup Successful", username, clientIp);
+      
+      const { password: _, ...userWithoutPassword } = newUser;
+      res.status(201).json({
+        message: "Account created successfully",
+        user: userWithoutPassword
+      });
+    } catch (error) {
+      console.error("Signup error:", error);
+      await discordLogger.logAuthEvent("Signup Error - Server Exception", req.body?.username || "unknown", clientIp);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
   // User management routes
   app.get("/api/users", requireAuth, requireAdmin, async (req, res) => {
     try {
