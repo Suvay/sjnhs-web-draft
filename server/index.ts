@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { discordLoggingMiddleware, setupGlobalErrorHandlers, discordLogger } from "./discord-logger";
+import { mongoConnection } from "./mongodb-connection";
 
 const app = express();
 app.use(express.json());
@@ -14,6 +15,15 @@ setupGlobalErrorHandlers();
 app.use(discordLoggingMiddleware());
 
 (async () => {
+  // Initialize MongoDB connection
+  try {
+    await mongoConnection.connect();
+    console.log('MongoDB connection initialized successfully');
+  } catch (error) {
+    console.error('Failed to initialize MongoDB connection:', error);
+    // Continue with PostgreSQL if MongoDB fails
+  }
+
   const server = await registerRoutes(app);
 
   app.use(async (err: any, _req: Request, res: Response, _next: NextFunction) => {
