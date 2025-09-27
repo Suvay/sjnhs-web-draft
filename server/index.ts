@@ -3,6 +3,7 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { discordLoggingMiddleware, setupGlobalErrorHandlers, discordLogger } from "./discord-logger";
 import { mongoConnection } from "./mongodb-connection";
+import { storageManager } from "./storage-config";
 
 const app = express();
 app.use(express.json());
@@ -15,13 +16,16 @@ setupGlobalErrorHandlers();
 app.use(discordLoggingMiddleware());
 
 (async () => {
-  // Initialize MongoDB connection
+  // Initialize storage system (MongoDB + PostgreSQL)
   try {
     await mongoConnection.connect();
-    console.log('MongoDB connection initialized successfully');
+    await storageManager.initialize();
+    const status = await storageManager.getStorageStatus();
+    console.log('Storage system initialized:', status);
   } catch (error) {
-    console.error('Failed to initialize MongoDB connection:', error);
-    // Continue with PostgreSQL if MongoDB fails
+    console.error('Error during storage initialization:', error);
+    // Fallback initialization
+    await storageManager.initialize();
   }
 
   const server = await registerRoutes(app);

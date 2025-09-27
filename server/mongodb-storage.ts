@@ -22,57 +22,57 @@ export interface MongoUser {
   username: string;
   password: string;
   role: string;
-  createdAt: string;
+  createdAt: Date | null;
 }
 
 export interface MongoContentPage {
   id: number;
   pageKey: string;
   title: string;
-  content: any;
-  isPublished: boolean;
-  lastModified: string;
-  modifiedBy?: number;
+  content: unknown;
+  isPublished: boolean | null;
+  lastModified: Date | null;
+  modifiedBy: number | null;
 }
 
 export interface MongoAnnouncement {
   id: number;
   title: string;
   content: string;
-  isPublished: boolean;
-  createdAt: string;
-  createdBy: number;
+  isPublished: boolean | null;
+  createdAt: Date | null;
+  createdBy: number | null;
 }
 
 export interface MongoStaffMember {
   id: number;
   name: string;
   position: string;
-  department?: string;
-  email?: string;
-  phone?: string;
-  imageUrl?: string;
-  isActive: boolean;
-  order: number;
+  department: string | null;
+  email: string | null;
+  phone: string | null;
+  imageUrl: string | null;
+  isActive: boolean | null;
+  order: number | null;
 }
 
 export interface MongoEvent {
   id: number;
   title: string;
-  description?: string;
-  eventDate: string;
-  location?: string;
-  isPublished: boolean;
-  createdAt: string;
-  createdBy: number;
+  description: string | null;
+  eventDate: Date;
+  location: string | null;
+  isPublished: boolean | null;
+  createdAt: Date | null;
+  createdBy: number | null;
 }
 
 export interface MongoSiteSetting {
   id: number;
   key: string;
-  value?: string;
-  description?: string;
-  lastModified: string;
+  value: string | null;
+  description: string | null;
+  lastModified: Date | null;
 }
 
 export class MongoDBStorage implements IStorage {
@@ -89,7 +89,7 @@ export class MongoDBStorage implements IStorage {
       username: doc.username,
       password: doc.password,
       role: doc.role,
-      createdAt: doc.createdAt.toISOString()
+      createdAt: doc.createdAt || null
     };
   }
 
@@ -100,8 +100,8 @@ export class MongoDBStorage implements IStorage {
       title: doc.title,
       content: doc.content,
       isPublished: doc.isPublished,
-      lastModified: doc.lastModified.toISOString(),
-      modifiedBy: doc.modifiedBy ? this.objectIdToNumber(doc.modifiedBy as Types.ObjectId) : undefined
+      lastModified: doc.lastModified || null,
+      modifiedBy: doc.modifiedBy ? this.objectIdToNumber(doc.modifiedBy as Types.ObjectId) : null
     };
   }
 
@@ -111,8 +111,8 @@ export class MongoDBStorage implements IStorage {
       title: doc.title,
       content: doc.content,
       isPublished: doc.isPublished,
-      createdAt: doc.createdAt.toISOString(),
-      createdBy: this.objectIdToNumber(doc.createdBy as Types.ObjectId)
+      createdAt: doc.createdAt || null,
+      createdBy: doc.createdBy ? this.objectIdToNumber(doc.createdBy as Types.ObjectId) : null
     };
   }
 
@@ -121,10 +121,10 @@ export class MongoDBStorage implements IStorage {
       id: this.objectIdToNumber(doc._id),
       name: doc.name,
       position: doc.position,
-      department: doc.department,
-      email: doc.email,
-      phone: doc.phone,
-      imageUrl: doc.imageUrl,
+      department: doc.department || null,
+      email: doc.email || null,
+      phone: doc.phone || null,
+      imageUrl: doc.imageUrl || null,
       isActive: doc.isActive,
       order: doc.order
     };
@@ -134,12 +134,12 @@ export class MongoDBStorage implements IStorage {
     return {
       id: this.objectIdToNumber(doc._id),
       title: doc.title,
-      description: doc.description,
-      eventDate: doc.eventDate.toISOString(),
-      location: doc.location,
+      description: doc.description || null,
+      eventDate: doc.eventDate || new Date(),
+      location: doc.location || null,
       isPublished: doc.isPublished,
-      createdAt: doc.createdAt.toISOString(),
-      createdBy: this.objectIdToNumber(doc.createdBy as Types.ObjectId)
+      createdAt: doc.createdAt || null,
+      createdBy: doc.createdBy ? this.objectIdToNumber(doc.createdBy as Types.ObjectId) : null
     };
   }
 
@@ -147,9 +147,9 @@ export class MongoDBStorage implements IStorage {
     return {
       id: this.objectIdToNumber(doc._id),
       key: doc.key,
-      value: doc.value,
-      description: doc.description,
-      lastModified: doc.lastModified.toISOString()
+      value: doc.value || null,
+      description: doc.description || null,
+      lastModified: doc.lastModified || null
     };
   }
 
