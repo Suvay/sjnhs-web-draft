@@ -248,7 +248,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             <Link href="/">
               <div className="flex items-center space-x-3 cursor-pointer">
-                <SchoolLogo size="md" className="text-green-600 dark:text-green-400" />
+                <SchoolLogo size="md" className="bg-white rounded-md p-1" />
                 <h1 className="text-xl font-bold text-green-600 dark:text-green-400">
                   San Jose National High School
                 </h1>
@@ -288,7 +288,7 @@ export default function Navigation() {
               {/* Mobile Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <div className="flex items-center space-x-2">
-                  <SchoolLogo size="sm" />
+                  <SchoolLogo size="sm" className="bg-white rounded-md p-1" />
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Menu</h2>
                 </div>
                 <div className="flex items-center space-x-2">

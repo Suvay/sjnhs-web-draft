@@ -36,7 +36,7 @@ export default function Login() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <SchoolLogo size="lg" />
+            <SchoolLogo size="lg" className="bg-white rounded-md p-2" />
           </div>
           <CardTitle className="text-2xl font-bold text-green-600 dark:text-green-400">
             Admin Dashboard
