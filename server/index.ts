@@ -12,8 +12,10 @@ app.use(express.urlencoded({ extended: false }));
 // Setup global error handlers and Discord logging
 setupGlobalErrorHandlers();
 
-// Use Discord-enhanced logging middleware
-app.use(discordLoggingMiddleware());
+// Disable Discord logging middleware in development due to certificate issues
+if (process.env.NODE_ENV === 'production' && process.env.DISCORD_WEBHOOK_URL) {
+  app.use(discordLoggingMiddleware());
+}
 
 (async () => {
   // Initialize storage system (MongoDB + PostgreSQL)
@@ -25,7 +27,7 @@ app.use(discordLoggingMiddleware());
   } catch (error) {
     console.error('Error during storage initialization:', error);
     // Fallback initialization
-    await storageManager.initialize();
+    storageManager.switchToPostgreSQL();
   }
 
   const server = await registerRoutes(app);
@@ -34,8 +36,8 @@ app.use(discordLoggingMiddleware());
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
 
-    // Log error to Discord
-    await discordLogger.logError(err, `Express Error Handler - ${_req.method} ${_req.path}`);
+    // Skip Discord logging in development
+    console.error(`Express Error Handler - ${_req.method} ${_req.path}:`, err);
 
     res.status(status).json({ message });
   });
