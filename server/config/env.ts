@@ -9,7 +9,7 @@ const envSchema = z.object({
   PORT: z.string().transform(Number).default('5000'),
   
   // MongoDB Configuration
-  MONGO_URI: z.string().default('mongodb://localhost:27017/admin-dashboard'),
+  MONGODB_CONNECTION_STRING: z.string().default('mongodb://localhost:27017/admin-dashboard'),
   
   // Session and Authentication
   SESSION_SECRET: z.string().default('your-session-secret-change-in-production'),
