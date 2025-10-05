@@ -88,6 +88,25 @@ npm start
 3. **Environment variables**: Must be set in Plesk for security
 4. **Port configuration**: Server runs on port 3000 internally, Plesk proxies to port 80/443
 
+## Additional Deployment Actions (Shell Commands)
+Use these commands for your specific domain (replace `yourdomain.com` with your actual domain):
+
+```bash
+# Copy pre-built files from dist/public to web directory
+cp -r dist/public/* /var/www/vhosts/yourdomain.com/httpdocs/
+# Copy .htaccess for proper React routing
+cp .htaccess /var/www/vhosts/yourdomain.com/httpdocs/
+# Set proper permissions
+chmod -R 755 /var/www/vhosts/yourdomain.com/httpdocs/
+```
+
+**For your domain `sjnhs1971.optikl.ink`:**
+```bash
+cp -r dist/public/* /var/www/vhosts/sjnhs1971.optikl.ink/httpdocs/
+cp .htaccess /var/www/vhosts/sjnhs1971.optikl.ink/httpdocs/
+chmod -R 755 /var/www/vhosts/sjnhs1971.optikl.ink/httpdocs/
+```
+
 ## File Structure After Upload
 ```
 /httpdocs/
